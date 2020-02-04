@@ -1,0 +1,2264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 8.6.10" />
+<title></title>
+<style type="text/css">
+/* Shared CSS for AsciiDoc xhtml11 and html5 backends */
+
+/* Default font. */
+body {
+  font-family: Georgia,serif;
+}
+
+/* Title font. */
+h1, h2, h3, h4, h5, h6,
+div.title, caption.title,
+thead, p.table.header,
+#toctitle,
+#author, #revnumber, #revdate, #revremark,
+#footer {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: fuchsia;
+}
+
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #083194;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+h5 {
+  font-size: 1.0em;
+}
+
+div.sectionbody {
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+ul > li     { color: #aaa; }
+ul > li > * { color: black; }
+
+.monospaced, code, pre {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
+  padding: 0;
+  margin: 0;
+}
+pre {
+  white-space: pre-wrap;
+}
+
+#author {
+  color: #527bbd;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+#email {
+}
+#revnumber, #revdate, #revremark {
+}
+
+#footer {
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.0em;
+  margin-bottom: 2.0em;
+  margin-right: 10%;
+  color: #606060;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #527bbd;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
+  background: #f8f8f8;
+  padding: 0.5em;
+}
+
+div.quoteblock, div.verseblock {
+  padding-left: 1.0em;
+  margin-left: 1.0em;
+  margin-right: 10%;
+  border-left: 5px solid #f0f0f0;
+  color: #888;
+}
+
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock > pre.content {
+  font-family: inherit;
+  font-size: inherit;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 3px solid #dddddd;
+}
+
+div.exampleblock > div.content {
+  border-left: 3px solid #dddddd;
+  padding-left: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; vertical-align: text-bottom; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  color: navy;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+  color: navy;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+.footnote, .footnoteref {
+  font-size: 0.8em;
+}
+
+span.footnote, span.footnoteref {
+  vertical-align: super;
+}
+
+#footnotes {
+  margin: 20px 0 20px 0;
+  padding: 7px 0 0 0;
+}
+
+#footnotes div.footnote {
+  margin: 0 0 5px 0;
+}
+
+#footnotes hr {
+  border: none;
+  border-top: 1px solid silver;
+  height: 1px;
+  text-align: left;
+  margin-left: 0;
+  width: 20%;
+  min-width: 100px;
+}
+
+div.colist td {
+  padding-right: 0.5em;
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+div.colist td img {
+  margin-top: 0.3em;
+}
+
+@media print {
+  #footer-badges { display: none; }
+}
+
+#toc {
+  margin-bottom: 2.5em;
+}
+
+#toctitle {
+  color: #527bbd;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel0, div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+
+span.aqua { color: aqua; }
+span.black { color: black; }
+span.blue { color: blue; }
+span.fuchsia { color: fuchsia; }
+span.gray { color: gray; }
+span.green { color: green; }
+span.lime { color: lime; }
+span.maroon { color: maroon; }
+span.navy { color: navy; }
+span.olive { color: olive; }
+span.purple { color: purple; }
+span.red { color: red; }
+span.silver { color: silver; }
+span.teal { color: teal; }
+span.white { color: white; }
+span.yellow { color: yellow; }
+
+span.aqua-background { background: aqua; }
+span.black-background { background: black; }
+span.blue-background { background: blue; }
+span.fuchsia-background { background: fuchsia; }
+span.gray-background { background: gray; }
+span.green-background { background: green; }
+span.lime-background { background: lime; }
+span.maroon-background { background: maroon; }
+span.navy-background { background: navy; }
+span.olive-background { background: olive; }
+span.purple-background { background: purple; }
+span.red-background { background: red; }
+span.silver-background { background: silver; }
+span.teal-background { background: teal; }
+span.white-background { background: white; }
+span.yellow-background { background: yellow; }
+
+span.big { font-size: 2em; }
+span.small { font-size: 0.6em; }
+
+span.underline { text-decoration: underline; }
+span.overline { text-decoration: overline; }
+span.line-through { text-decoration: line-through; }
+
+div.unbreakable { page-break-inside: avoid; }
+
+
+/*
+ * xhtml11 specific
+ *
+ * */
+
+div.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead, p.table.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+/*
+ * html5 specific
+ *
+ * */
+
+table.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+thead, p.tableblock.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.tableblock {
+  margin-top: 0;
+}
+table.tableblock {
+  border-width: 3px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-color: #527bbd;
+  border-collapse: collapse;
+}
+th.tableblock, td.tableblock {
+  border-width: 1px;
+  padding: 4px;
+  border-style: solid;
+  border-color: #527bbd;
+}
+
+table.tableblock.frame-topbot {
+  border-left-style: hidden;
+  border-right-style: hidden;
+}
+table.tableblock.frame-sides {
+  border-top-style: hidden;
+  border-bottom-style: hidden;
+}
+table.tableblock.frame-none {
+  border-style: hidden;
+}
+
+th.tableblock.halign-left, td.tableblock.halign-left {
+  text-align: left;
+}
+th.tableblock.halign-center, td.tableblock.halign-center {
+  text-align: center;
+}
+th.tableblock.halign-right, td.tableblock.halign-right {
+  text-align: right;
+}
+
+th.tableblock.valign-top, td.tableblock.valign-top {
+  vertical-align: top;
+}
+th.tableblock.valign-middle, td.tableblock.valign-middle {
+  vertical-align: middle;
+}
+th.tableblock.valign-bottom, td.tableblock.valign-bottom {
+  vertical-align: bottom;
+}
+
+
+/*
+ * manpage specific
+ *
+ * */
+
+body.manpage h1 {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-top: 2px solid silver;
+  border-bottom: 2px solid silver;
+}
+body.manpage h2 {
+  border-style: none;
+}
+body.manpage div.sectionbody {
+  margin-left: 3em;
+}
+
+@media print {
+  body.manpage div#toc { display: none; }
+}
+
+
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+var asciidoc = {  // Namespace.
+
+/////////////////////////////////////////////////////////////////////
+// Table Of Contents generator
+/////////////////////////////////////////////////////////////////////
+
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, 2006, 2009. License: GPL */
+
+// toclevels = 1..4.
+toc: function (toclevels) {
+
+  function getText(el) {
+    var text = "";
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+        text += i.data;
+      else if (i.firstChild != null)
+        text += getText(i);
+    }
+    return text;
+  }
+
+  function TocEntry(el, text, toclevel) {
+    this.element = el;
+    this.text = text;
+    this.toclevel = toclevel;
+  }
+
+  function tocEntries(el, toclevels) {
+    var result = new Array;
+    var re = new RegExp('[hH]([1-'+(toclevels+1)+'])');
+    // Function that scans the DOM tree for header elements (the DOM2
+    // nodeIterator API would be a better technique but not supported by all
+    // browsers).
+    var iterate = function (el) {
+      for (var i = el.firstChild; i != null; i = i.nextSibling) {
+        if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+          var mo = re.exec(i.tagName);
+          if (mo && (i.getAttribute("class") || i.getAttribute("className")) != "float") {
+            result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+          }
+          iterate(i);
+        }
+      }
+    }
+    iterate(el);
+    return result;
+  }
+
+  var toc = document.getElementById("toc");
+  if (!toc) {
+    return;
+  }
+
+  // Delete existing TOC entries in case we're reloading the TOC.
+  var tocEntriesToRemove = [];
+  var i;
+  for (i = 0; i < toc.childNodes.length; i++) {
+    var entry = toc.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div'
+     && entry.getAttribute("class")
+     && entry.getAttribute("class").match(/^toclevel/))
+      tocEntriesToRemove.push(entry);
+  }
+  for (i = 0; i < tocEntriesToRemove.length; i++) {
+    toc.removeChild(tocEntriesToRemove[i]);
+  }
+
+  // Rebuild TOC entries.
+  var entries = tocEntries(document.getElementById("content"), toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "_toc_" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+  if (entries.length == 0)
+    toc.parentNode.removeChild(toc);
+},
+
+
+/////////////////////////////////////////////////////////////////////
+// Footnotes generator
+/////////////////////////////////////////////////////////////////////
+
+/* Based on footnote generation code from:
+ * http://www.brandspankingnew.net/archive/2005/07/format_footnote.html
+ */
+
+footnotes: function () {
+  // Delete existing footnote entries in case we're reloading the footnodes.
+  var i;
+  var noteholder = document.getElementById("footnotes");
+  if (!noteholder) {
+    return;
+  }
+  var entriesToRemove = [];
+  for (i = 0; i < noteholder.childNodes.length; i++) {
+    var entry = noteholder.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div' && entry.getAttribute("class") == "footnote")
+      entriesToRemove.push(entry);
+  }
+  for (i = 0; i < entriesToRemove.length; i++) {
+    noteholder.removeChild(entriesToRemove[i]);
+  }
+
+  // Rebuild footnote entries.
+  var cont = document.getElementById("content");
+  var spans = cont.getElementsByTagName("span");
+  var refs = {};
+  var n = 0;
+  for (i=0; i<spans.length; i++) {
+    if (spans[i].className == "footnote") {
+      n++;
+      var note = spans[i].getAttribute("data-note");
+      if (!note) {
+        // Use [\s\S] in place of . so multi-line matches work.
+        // Because JavaScript has no s (dotall) regex flag.
+        note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+        spans[i].innerHTML =
+          "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+        spans[i].setAttribute("data-note", note);
+      }
+      noteholder.innerHTML +=
+        "<div class='footnote' id='_footnote_" + n + "'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
+        n + "</a>. " + note + "</div>";
+      var id =spans[i].getAttribute("id");
+      if (id != null) refs["#"+id] = n;
+    }
+  }
+  if (n == 0)
+    noteholder.parentNode.removeChild(noteholder);
+  else {
+    // Process footnoterefs.
+    for (i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnoteref") {
+        var href = spans[i].getElementsByTagName("a")[0].getAttribute("href");
+        href = href.match(/#.*/)[0];  // Because IE return full URL.
+        n = refs[href];
+        spans[i].innerHTML =
+          "[<a href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+      }
+    }
+  }
+},
+
+install: function(toclevels) {
+  var timerId;
+
+  function reinstall() {
+    asciidoc.footnotes();
+    if (toclevels) {
+      asciidoc.toc(toclevels);
+    }
+  }
+
+  function reinstallAndRemoveTimer() {
+    clearInterval(timerId);
+    reinstall();
+  }
+
+  timerId = setInterval(reinstall, 500);
+  if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", reinstallAndRemoveTimer, false);
+  else
+    window.onload = reinstallAndRemoveTimer;
+}
+
+}
+asciidoc.install();
+/*]]>*/
+</script>
+</head>
+<body class="article">
+<div id="header">
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_name">NAME</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>odgi - utilities for manipulating Graphical Fragment Assembly (GFA) Format Specification</p></div>
+<div class="paragraph"><div class="title">/odgi &lt;command&gt; [options]</div><p>--build.. convert gfa in odgi i.e. variation graph</p></div>
+<div class="paragraph"><p>Options:</p></div>
+<div class="paragraph"><p>-g, GFA input file
+-o, ODGI output file</p></div>
+<div class="paragraph" id="init"><p>Before executing any of the following commands, initialize the <em>graph</em> object:</p></div>
+<div class="paragraph"><p>import odgi</p></div>
+<div class="paragraph"><p>g = odgi.graph()</p></div>
+<div class="paragraph"><p>All the commands are methods of the <em>graph</em> class.</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_list_of_methods">LIST OF METHODS</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+<strong><a href="#load">load</a></strong>                                        ..  load the graph from the given file
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#append_step">append_step</a></strong>                          ..  append a visit to a node to the given path and add a path steps
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#apply_ordering">apply_ordering</a></strong>                    ..  reorder the graph&#8217;s internal structure to match that given
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#apply_orientation">apply_orientation</a></strong>              ..  modify the node to which the specified handle corresponds
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#apply_path_ordering">apply_path_ordering</a></strong>          ..  reorder the graph&#8217;s paths as given
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#clear">clear</a></strong>                                      ..  clears all added nodes and edges
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#clear_paths">clear_paths</a></strong>                          ..  clears all path thath already stored
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#combine_handles">combine_handles</a></strong>                  ..  join the handles specified in a new node
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#create_edge">create_edge</a></strong>                          ..  create edge that connecting two given handles
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#create_handle">create_handle</a></strong>                      ..  create a new node and return the handle
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#create_path_handle">create_path_handle</a></strong>            ..  create a path but the name given to the path must not already exist
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#destroy_handle">destroy_handle</a></strong>                    ..  remove the node belonging to the given handle and all of its edges
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#destroy_path">destroy_path</a></strong>                        ..  remove the given path
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#divide_handle">divide_handle</a></strong>                      ..  split a node (remember that the node is associated with a sequence) and returns the list of handles
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#edge_handle">edge_handle</a></strong>                          ..  for the given pair of handle return the edge
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#flip">flip</a></strong>                                        ..  reverse the orientation of the handle
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#follow_edges">follow_edges</a></strong>                        ..  starting at a given node and obtain list the edges
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#for_each_handle">for_each_handle</a></strong>                  ..  iterate over all the nodes in the graph
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#for_each_path_handle">for_each_path_handle</a></strong>        ..  iterate over all the path in the graph
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#for_each_step_in_path">for_each_step_in_path</a></strong>      ..  iterate over all steps in the graph
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#for_each_step_on_handle">for_each_step_on_handle</a></strong>  ..  getting the steps on each handle
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#forward">forward</a></strong>                                  ..  return the forward of the handle
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#get_degree">get_degree</a></strong>                            ..  return the degree of the given handle
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#get_handle">get_handle</a></strong>                            ..  pass a value of a node identifier(id)
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#get_handle_of_step">get_handle_of_step</a></strong>            ..  return the handle of the step
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#get_id">get_id</a></strong>                                    ..  return the id of the given node
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#get_is_circular">get_is_circular</a></strong>                  ..  if the path is circular returns true
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#get_is_reverse">get_is_reverse</a></strong>                    ..  false,by default,we get the forward handle
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#get_lenght">get_lenght</a></strong>                            ..  return the lenght of the node referred to by the handle
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#get_next_step">get_next_step</a></strong>                      ..  returns a handle to the next step on the path
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#get_node_count">get_node_count</a></strong>                    ..  return the numbers of the nodes in the graph
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#get_path">get_path</a></strong>                                ..  return the path of a given step handle
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#get_path_count">get_path_count</a></strong>                    ..  return the path count in the graph
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#get_path_handle">get_path_handle</a></strong>                  ..  return the path handle for the named path
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#get_path_handle_of_step">get_path_handle_of_step</a></strong>  ..  returns a handle to the path that an step is on
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#get_path_name">get_path_name</a></strong>                      ..  return the path name for a given path handle
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#get_previous_step">get_previous_step</a></strong>              ..  return a handle to the previous step on the path
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#get_sequence">get_sequence</a></strong>                        ..  return sequence of the given id of the handle
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#get_step_count">get_step_count</a></strong>                    ..  return the step count of a given handle
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#has_edge">has_edge</a></strong>                                ..  return true if the given edge exists in the graph
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#has_next_step">has_next_step</a></strong>                      ..  return true if the step isn&#8217;t the last on the path
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#has_node">has_node</a></strong>                                ..  return true if the given node id is in the graph
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#has_path">has_path</a></strong>                                ..  return true if the given name of the path exists
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#has_previous_step">has_previous_step</a></strong>              ..  return true if the step isn&#8217;t the first step on the path
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#insert_step">insert_step</a></strong>                          ..  insert a visit to a node to the given path between the given steps
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#is_empty">is_empty</a></strong>                                ..  return false if the path isn&#8217;t empty
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#is_path_end">is_path_end</a></strong>                          ..  return true if the step hand in an end handle
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#is_path_front_end">is_path_front_end</a></strong>              ..  return true if the step handle is a front end handle
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#max_node_id">max_node_id</a></strong>                          ..  return the maximum value (node id) in the graph
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#min_node_id">min_node_id</a></strong>                          ..  return the minimun value (node id) in the graph
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#optimize">optimize</a></strong>                                ..  the graph is organize for better performance
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#path_back">path_back</a></strong>                              ..  return a step handle to the last step
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#path_begin">path_begin</a></strong>                            ..  return a step handle for the first step in the path
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#path_end">path_end</a></strong>                                ..  return a step handle to a handle one past the end of the path
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#path_front_end">path_front_end</a></strong>                    ..  return a step handle to a handle one past the start of the path
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#prepend_step">prepend_step</a></strong>                        ..  return a handle to the new final step on the path which is appended
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#rewrite_segment">rewrite_segment</a></strong>                  ..  replace the path range with the new segment
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#serialize">serialize</a></strong>                              ..  save the graph to the given file
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#set_circularity">set_circularity</a></strong>                  ..  set if the path is circular or not
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#set_id_increment">set_id_increment</a></strong>                ..  defines a base increment for the node id space
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#set_step">set_step</a></strong>                                ..  set the step to the given handle
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#steps_of_handle">steps_of_handle</a></strong>                  ..  return a list of the steps handle on a given handle
+</p>
+</li>
+<li>
+<p>
+<strong><a href="#to_gfa">to_gfa</a></strong>                                    ..  display odgi.graph as GFA
+</p>
+</li>
+</ul></div>
+<div class="sect2">
+<h3 id="load">load()</h3>
+<div class="paragraph"><p>load the graph from the given file</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+str: (<em>/path/to/file.odgi</em>)
+</p>
+</dd>
+</dl></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="append_step">append_step()</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>append a visit to a node to the given path and add a path steps</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+g.path_handle: pass the path name as a string
+</p>
+</dd>
+<dt class="hdlist1">
+*-arg1
+</dt>
+<dd>
+<p>
+g.handle: an oriented traversal of a node, for example pass a value of a node identifier (id) with g.get_handle
+</p>
+</dd>
+</dl></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>example:
+
+h = g.get_handle(16)
+p = g.get_path_handle('z')
+g.append_step(p, h)        #add path steps</code></pre>
+</div></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="apply_ordering">apply_ordering()</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>reorder the graph&#8217;s internal structure to match that given.
+Optionally compact the id space of the graph to match the ordering, from 1&#8594;|ordering|.</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+list: [odgi.handle]
+</p>
+</dd>
+<dt class="hdlist1">
+*-arg1
+</dt>
+<dd>
+<p>
+compact_ids: bool(false)
+</p>
+</dd>
+</dl></div>
+<div class="sect2">
+<h3 id="apply_orientation">apply_orientation()</h3>
+<div class="paragraph"><p>modify the node to which the specified handle corresponds and update all route links and steps to match the new orientation.</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+g.handle: an oriented traversal of a node, for example pass a value of a node identifier (id) with g.get_handle
+</p>
+</dd>
+</dl></div>
+</div>
+<div class="sect2">
+<h3 id="apply_path_ordering">apply_path_ordering()</h3>
+<div class="paragraph"><p>reorder the graph&#8217;s path as given</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+g.path_handle: [],a reference to a path
+</p>
+</dd>
+</dl></div>
+</div>
+<div class="sect2">
+<h3 id="clear">clear()</h3>
+<div class="paragraph"><p>clears all added nodes and edges and does not update the parhs already stored</p></div>
+</div>
+<div class="sect2">
+<h3 id="clear_paths">clear_paths()</h3>
+<div class="paragraph"><p>clears all path that already stored</p></div>
+</div>
+<div class="sect2">
+<h3 id="combine_handles">combine_handles()</h3>
+<div class="paragraph"><p>join the handles specified in a new node.
+Removes the specified handles and returns the handle of the new node tied to the nodes to which the last node of the input list was tied.</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+[g.handle]: list of handles
+</p>
+</dd>
+</dl></div>
+</div>
+<div class="sect2">
+<h3 id="create_edge">create_edge()</h3>
+<div class="paragraph"><p>create edge that connecting two given handles in the given orientations.
+Edge link two handles and is directed from the first member of the pair to the second</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+g.handle: first handle (an oriented traversal of a node)
+</p>
+</dd>
+<dt class="hdlist1">
+*-arg1
+</dt>
+<dd>
+<p>
+g.handle: second handle
+</p>
+</dd>
+</dl></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>example:
+
+g.get_node_count() # 15
+h = g.create_handle("GATTACA")
+g.get_node_count() # 16
+
+#we can also add edges:
+
+g.add_edge(g.get_handle(15), h) # connects node 15 to 16</code></pre>
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="create_handle">create_handle()</h3>
+<div class="paragraph"><p>create a new node and return the handle, allows us to refer to one strand of a single node, which is the smallest addressable unit in a variation graph.
+It&#8217;s possible to add and delete nodes from the graph</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+str: a given sequence
+</p>
+</dd>
+</dl></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>example:
+
+g.get_node_count() # 15
+h = g.create_handle("GATTACA")
+g.get_node_count() # 16</code></pre>
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="create_path_handle">create_path_handle()</h3>
+<div class="paragraph"><p>create a path but the name given to the path must not already exist</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+name: str
+</p>
+</dd>
+<dt class="hdlist1">
+*-arg1
+</dt>
+<dd>
+<p>
+is_circular: bool = False
+</p>
+</dd>
+</dl></div>
+</div>
+<div class="sect2">
+<h3 id="destroy_edge">destroy_edge()</h3>
+<div class="paragraph"><p>remove the edge connecting the given handles</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+g.handle: first, pass a value of a node identifier
+</p>
+</dd>
+<dt class="hdlist1">
+*-arg1
+</dt>
+<dd>
+<p>
+g.handle: second, pass a value of a node identifier
+</p>
+</dd>
+</dl></div>
+</div>
+<div class="sect2">
+<h3 id="destroy_handle">destroy_handle()</h3>
+<div class="paragraph"><p>remove the node belonging to the given handle and all of its edges.
+Invalidates the destroyed handle</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+g.handle: an oriented traversal of a node, for example pass a value of a node identifier(id) with g.get_handle
+</p>
+</dd>
+</dl></div>
+</div>
+<div class="sect2">
+<h3 id="destroy_path">destroy_path()</h3>
+<div class="paragraph"><p>remove the given path and invalidates node and handles to the path</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+g.handle: an oriented traversal of a node, for example pass a value of a node identifier(id) with g.get_handle
+</p>
+</dd>
+</dl></div>
+</div>
+<div class="sect2">
+<h3 id="divide_handle">divide_handle()</h3>
+<div class="paragraph"><p>split a node (remember that the node is associated with a sequence) and returns the list of tha handles.
+Each node obtained from the split, starts from the next character of the sequence of the previous node</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+g.handle: an oriented traversal of a node, for example pass a value of a node identifier that you want to split
+</p>
+</dd>
+<dt class="hdlist1">
+*-arg1
+</dt>
+<dd>
+<p>
+list of number: position of the last character of the sequence that will enter the i-th node
+</p>
+</dd>
+</dl></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>example:
+
+g.divide_handle(g.get_handle(9), [3,7])   #we can divide a node without breaking the paths that overlap it</code></pre>
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="edge_handle">edge_handle</h3>
+<div class="paragraph"><p>for the given pair of handle return the edge that connected the given handles, the edge is directed from the first member of the pair to the second</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+g.handle: first handle, an oriented traversal of a node
+</p>
+</dd>
+<dt class="hdlist1">
+*-arg1
+</dt>
+<dd>
+<p>
+g.handle: second handle
+</p>
+</dd>
+</dl></div>
+</div>
+<div class="sect2">
+<h3 id="flip">flip()</h3>
+<div class="paragraph"><p>revers the orientation of the handle, handle allows us to refer to one strand of a single node, which is the smallest addressable unit in a variation graph</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+g.handle: an oriented traversal of a node, for example pass a value of a node identifier
+</p>
+</dd>
+</dl></div>
+</div>
+<div class="sect2">
+<h3 id="follow_edges">follow_edges()</h3>
+<div class="paragraph"><p>starting at a given node, obtained list of the edges</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+g.handle: an oriented traversal of a node, for example pass a value of a node identifier (id)
+</p>
+</dd>
+<dt class="hdlist1">
+*-arg1
+</dt>
+<dd>
+<p>
+bool: True or False. False, by default we get the forward handle in our graph
+</p>
+</dd>
+<dt class="hdlist1">
+*-arg2
+</dt>
+<dd>
+<p>
+Callable[[g.handle], bool])
+</p>
+</dd>
+</dl></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>example:
+
+def display_node_edges(h):
+    print("node", g.get_id(h))
+    g.follow_edges(
+        h, False,      #default
+        lambda n:
+        show_edge(h, n))
+    g.follow_edges(
+        h, True,
+        lambda n:
+        show_edge(n, h))</code></pre>
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="for_each_handle">for_each_handle()</h3>
+<div class="paragraph"><p>iterate over all the nodes in the graph, will invoke a callback for each forward handle in our graph</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+bool: True or False. False, by default we get the forward handle in our graph
+</p>
+</dd>
+<dt class="hdlist1">
+*-arg1
+</dt>
+<dd>
+<p>
+Callable[[g.handle], bool])
+</p>
+</dd>
+</dl></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>example:
+
+g.for_each_handle(lambda h: print(g.get_id(h), g.get_sequence(h)))
+# writes out each node id and its sequence</code></pre>
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="for_each_path_handle">for_each_path_handle()</h3>
+<div class="paragraph"><p>iterate over all the paths in the graph, will invoke a callback for each path in our graph</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+bool: True or False. False, by default we get the forward handle in our graph
+</p>
+</dd>
+<dt class="hdlist1">
+*-arg1
+</dt>
+<dd>
+<p>
+Callable[[g.handle], bool])
+</p>
+</dd>
+</dl></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>example:
+
+g.for_each_path_handle(lambda p: print(g.get_path_name(p)))
+# x
+# y
+# z
+
+#we can enumerate the paths and get their names</code></pre>
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="for_each_step_in_path">for_each_step_in_path()</h3>
+<div class="paragraph"><p>iterate over all steps in a given path, will invoke the callback for each step in the graph.
+Finding which node and orientation each step has.</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+bool: True or False. False, by default we get the forward handle in our graph
+</p>
+</dd>
+<dt class="hdlist1">
+*-arg1
+</dt>
+<dd>
+<p>
+Callable[[g.handle], bool])
+</p>
+</dd>
+</dl></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>example:
+
+# a function to call for each step in the path
+
+def process_step(s):
+    h = g.get_handle_of_step(s) # gets the handle (both node and orientation) of the step
+    is_rev = g.get_is_reverse(h)
+    id = g.get_id(h)
+    return str(id) + ("+" if not is_rev else "-")
+
+p = g.get_path_handle('z')
+q = []
+g.for_each_step_in_path(p, lambda s: q.append(process_step(s)))
+print(g.get_path_name(p), ",".join(q))
+
+# z 1+,3+,5+,6+,7+,9+,10+,12+,13+,15+</code></pre>
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="for_each_step_on_handle">for_each_step_on_handle()</h3>
+<div class="paragraph"><p>getting the steps on each handle(a reference to a single step of a path on one node traversal), will invoke the callback for each step in the graph.
+We cab check which paths overlap nodes.</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+bool: True or False. False, by default we get the forward handle in our graph
+</p>
+</dd>
+<dt class="hdlist1">
+*-arg1
+</dt>
+<dd>
+<p>
+Callable[[g.handle], bool])
+</p>
+</dd>
+</dl></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>example:
+
+h = g.get_handle(11)
+g.for_each_step_on_handle(h,
+    lambda s: print(g.get_path_name(g.get_path_handle_of_step(s))))
+# x
+# y
+
+g.for_each_step_on_handle(g.get_handle(9),
+    lambda s: print(g.get_path_name(g.get_path_handle_of_step(s))))
+# x
+# y
+# z</code></pre>
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="forward">forward()</h3>
+<div class="paragraph"><p>return the forward of the handle, because DNA sequence graphs have two strands, we need a more precise way of addressing elements in the graph than nodes, which implicitly represent both strands.
+The handle, allows us to refer to one strand of a single node.</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+g.handle: pass a value of a node identifier(id)
+</p>
+</dd>
+</dl></div>
+</div>
+<div class="sect2">
+<h3 id="get_degree">get_degree()</h3>
+<div class="paragraph"><p>return the degree of the given handle</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+g.handle: pass a value of a node identifier(id)
+</p>
+</dd>
+<dt class="hdlist1">
+*-arg1
+</dt>
+<dd>
+<p>
+bool: True o False. False, by default, we get the forward handle
+</p>
+</dd>
+</dl></div>
+</div>
+<div class="sect2">
+<h3 id="get_handle">get_handle()</h3>
+<div class="paragraph"><p>pass a value of a node identifier(id) and return the handle for the given node id</p></div>
+<div class="paragraph"><p>example:</p></div>
+<div class="paragraph"><p>h = g.get_handle (node_id)
+r = g.get_handle(node_id, True)  # get the reverse handle</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+node: node identifier(id)
+</p>
+</dd>
+<dt class="hdlist1">
+*-arg1
+</dt>
+<dd>
+<p>
+bool: True o False. False, by default, we get the forward handle
+</p>
+</dd>
+</dl></div>
+</div>
+<div class="sect2">
+<h3 id="get_handle_of_step">get_handle_of_step()</h3>
+<div class="paragraph"><p>return the handle (both node and orientation) of the step</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+g.step_handle: a reference to a single step of a path on one node traversal
+</p>
+</dd>
+</dl></div>
+</div>
+<div class="sect2">
+<h3 id="get_id">get_id()</h3>
+<div class="paragraph"><p>return the id of the given handle</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+g.handle: pass a value of a node identifier (id) of an handle
+</p>
+</dd>
+</dl></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>example:
+
+h = g.get_handle(node_id)
+g.get_id(h) #returns node_id
+print(g.get_sequence(h))  # AAATTTTCTGGAGTTCTAT --- same as the node in the graph</code></pre>
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="get_is_circular">get_is_circular()</h3>
+<div class="paragraph"><p>if the path is circular(it start with a node and return on these node) returns true</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+g.path_handle: a reference to a path, pass a name for a given path(str)
+</p>
+</dd>
+</dl></div>
+</div>
+<div class="sect2">
+<h3 id="get_is_reverse">get_is_reverse()</h3>
+<div class="paragraph"><p>false, by default, we get the forward handle and return true if the handle refers to the node reverse complement</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+g.handle: pass a value of a node identifier(id)
+</p>
+</dd>
+</dl></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>example:
+
+r = g.get_handle(node_id, True)  # get the reverse handle
+g.get_is_reverse(r)  # True, this handle is reverse
+print(g.get_sequence(r))  # ATAGAACTCCAGAAAATTT --- the reverse complement</code></pre>
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="get_length">get_length()</h3>
+<div class="paragraph"><p>return the length of the node referred to by handle</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+g.handle: pass a value of a node identifier(id)
+</p>
+</dd>
+</dl></div>
+</div>
+<div class="sect2">
+<h3 id="get_next_step">get_next_step()</h3>
+<div class="paragraph"><p>returns a handle to the next step on the path.
+Calling on an end marker step returns the same and marker</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+g.step_handle: a reference to a single step of a path on one node traversal
+</p>
+</dd>
+</dl></div>
+</div>
+<div class="sect2">
+<h3 id="get_node_count">get_node_count()</h3>
+<div class="paragraph"><p>return the number of nodes in the graph</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>example:
+
+g.get_node_count()
+#15 (total number of the nodes)</code></pre>
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="get_path">get_path()</h3>
+<div class="paragraph"><p>Paths are a series of steps which link a path identifier and a handle. Return the path of a given step handle</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+g.step_handle: a reference to a single step of a path on one node traversal
+</p>
+</dd>
+</dl></div>
+</div>
+<div class="sect2">
+<h3 id="get_path_count">get_path_count()</h3>
+<div class="paragraph"><p>return the path count in the graph</p></div>
+</div>
+<div class="sect2">
+<h3 id="get_path_handle">get_path_handle</h3>
+<div class="paragraph"><p>return the path handle for the named path</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+str: named of the path
+</p>
+</dd>
+</dl></div>
+</div>
+<div class="sect2">
+<h3 id="get_path_handle_of_step">get_path_handle_of_step()</h3>
+<div class="paragraph"><p>returns a handle to the path that an step is on</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+g.step_handle: a reference to a single step of a path on one node traversal
+</p>
+</dd>
+</dl></div>
+</div>
+<div class="sect2">
+<h3 id="get_path_name">get_path_name()</h3>
+<div class="paragraph"><p>return the path name for a given path handle</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+g.path_handle: (a reference to a path), name for a given path (str)
+</p>
+</dd>
+</dl></div>
+</div>
+<div class="sect2">
+<h3 id="get_previous_step">get_previous_step</h3>
+<div class="paragraph"><p>returns a handle to the previous step on the path, calling on a dront end marker step returns the same end marker</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+g.step_handle: a reference to a single step of a path on one node traversal
+</p>
+</dd>
+</dl></div>
+</div>
+<div class="sect2">
+<h3 id="get_sequence">get_sequence</h3>
+<div class="paragraph"><p>nodes have numeric identifiers (or _ID_s), and associated sequences.Nodes have numeric identifiers (or _ID_s), and associated sequences
+Return sequence of the given id of the handle</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+g.handle: pass a value of a node identifier (id) of an handle
+</p>
+</dd>
+</dl></div>
+</div>
+<div class="sect2">
+<h3 id="get_step_count">get_step_count()</h3>
+<div class="paragraph"><p>return the step count of a given handle</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+g.path_handle: (a reference to a path), for example use g.get_path_handle that return the path handle for the named path
+</p>
+</dd>
+</dl></div>
+</div>
+<div class="sect2">
+<h3 id="has_edge">has_edge()</h3>
+<div class="paragraph"><p>return true if the given edge exists, false if the given edge don&#8217;t exists.
+Edges link two handles and the edge is directed from the first member of the pair to the second</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+g.handle: pass a value of a node identifier (id), first member
+</p>
+</dd>
+<dt class="hdlist1">
+*-arg1
+</dt>
+<dd>
+<p>
+g.handle: second member
+</p>
+</dd>
+</dl></div>
+</div>
+<div class="sect2">
+<h3 id="has_next_step">has_next_step()</h3>
+<div class="paragraph"><p>return true if the step is not the last step on the path, else false</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+g.step_handle: a reference to a single step of a path on one node traversal
+</p>
+</dd>
+</dl></div>
+</div>
+<div class="sect2">
+<h3 id="has_node">has_node()</h3>
+<div class="paragraph"><p>nodes have numeric identifiers (or _ID_s), and associated sequences.
+Return true if the given node id is in the graph and false if the given node is isn&#8217;t exist.</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+node_id: value of the node
+</p>
+</dd>
+</dl></div>
+</div>
+<div class="sect2">
+<h3 id="has_path">has_path()</h3>
+<div class="paragraph"><p>paths are a series of steps which link a path identifier and a handle.
+Return true if the given name of the path exists in the graph else false</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+path_name: name of the path, str
+</p>
+</dd>
+</dl></div>
+</div>
+<div class="sect2">
+<h3 id="has_previous_step">has_previous_step()</h3>
+<div class="paragraph"><p>paths are a series of steps which link a path identifier and a handle.
+Return true if the step is not the first step on the path, else false</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+g.step_handle: a reference to a single step of a path on one node traversal
+</p>
+</dd>
+</dl></div>
+</div>
+<div class="sect2">
+<h3 id="insert_step">inset_step()</h3>
+<div class="paragraph"><p>insert a visit to a node to the given path between the given steps.
+Returns a handle to the new step on the path which is appended</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+g.step_handle: a reference to a single step of a path on one node traversal
+</p>
+</dd>
+<dt class="hdlist1">
+*-arg1
+</dt>
+<dd>
+<p>
+g.step_handle: a reference to a single step of a path on one node traversal
+</p>
+</dd>
+<dt class="hdlist1">
+*-arg2
+</dt>
+<dd>
+<p>
+g.handle: pass a value of a node identifier (id) of an handle
+</p>
+</dd>
+</dl></div>
+</div>
+<div class="sect2">
+<h3 id="is_empty">is_empty()</h3>
+<div class="paragraph"><p>return false if the path isn&#8217;t empty, and true otherwise</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+g.path_handle: a reference to a path
+</p>
+</dd>
+</dl></div>
+</div>
+<div class="sect2">
+<h3 id="is_path_end">is_path_end()</h3>
+<div class="paragraph"><p>return true if the step handle is an end handle</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+g.step_handle: a reference to a single step of a path on one node traversal
+</p>
+</dd>
+</dl></div>
+</div>
+<div class="sect2">
+<h3 id="is_path_front_end">is_path_front_end()</h3>
+<div class="paragraph"><p>return true if the step handle is a front end handle</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+g.step_handle: a reference to a single step of a path on one node traversal
+</p>
+</dd>
+</dl></div>
+</div>
+<div class="sect2">
+<h3 id="max_node_id">max_node_id()</h3>
+<div class="paragraph"><p>return the maximum value (node_id) in the graph</p></div>
+</div>
+<div class="sect2">
+<h3 id="min_node_id">min_node_id()</h3>
+<div class="paragraph"><p>return the minimun value (node_id) in the graph</p></div>
+</div>
+<div class="sect2">
+<h3 id="optimize">optimize()</h3>
+<div class="paragraph"><p>the graph is organize for better performance and memory use</p></div>
+</div>
+<div class="sect2">
+<h3 id="path_back">path_back()</h3>
+<div class="paragraph"><p>return a step handle to the last step.
+It is arbitrary in a circular path (star at the node and return to that)</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+g.path_handle: a reference to a path
+</p>
+</dd>
+</dl></div>
+</div>
+<div class="sect2">
+<h3 id="path_begin">path_begin()</h3>
+<div class="paragraph"><p>return a step handle for the first step in the given path.
+Paths are a series of steps which link a path identifier and a handle</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+g.path_handle: a reference to a path
+</p>
+</dd>
+</dl></div>
+</div>
+<div class="sect2">
+<h3 id="path_end">path_end()</h3>
+<div class="paragraph"><p>paths are a series of steps which link a path identifier and a handle.
+Return a step handle to a fictitious handle one past the end of the path</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+g.path_handle: a reference to a path
+</p>
+</dd>
+</dl></div>
+</div>
+<div class="sect2">
+<h3 id="path_front_end">path_front_end()</h3>
+<div class="paragraph"><p>paths are a series of steps which link a path identifier and a handle.
+Return a step handle to a fictitious handle one past the start of the path</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+g.path_handle: a reference to a path
+</p>
+</dd>
+</dl></div>
+</div>
+<div class="sect2">
+<h3 id="prepend_step">prepend_step()</h3>
+<div class="paragraph"><p>paths are a series of steps which link a path identifier and a handle.
+Return a handle to the new final step on the path which is appended and append a visit to a node to the given path</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+g.path_handle: a reference to a path
+</p>
+</dd>
+<dt class="hdlist1">
+*-arg1
+</dt>
+<dd>
+<p>
+g.handle: pass a value of a node identifier (id) of an handle
+</p>
+</dd>
+</dl></div>
+</div>
+<div class="sect2">
+<h3 id="rewrite_segment">rewrite_segment()</h3>
+<div class="paragraph"><p>replace the path range with the new segment.
+Returning the handles (start and end) for the segment</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+g.step_handle: a reference to a single step of a path on one node traversal
+</p>
+</dd>
+<dt class="hdlist1">
+*-arg1
+</dt>
+<dd>
+<p>
+g.step_handle: a reference to a single step of a path on one node traversal
+</p>
+</dd>
+<dt class="hdlist1">
+*-arg2
+</dt>
+<dd>
+<p>
+g.handle: list, pass a value of a node identifier (id) of an handle
+</p>
+</dd>
+</dl></div>
+</div>
+<div class="sect2">
+<h3 id="serialize">serialize()</h3>
+<div class="paragraph"><p>save the graph to the given file and return the number of bytes written</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+name_file: str
+</p>
+</dd>
+</dl></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>example:
+
+if you wish to save the graph from the above session, that can be done with:
+
+gr.serialize("example_graph.odgi")</code></pre>
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="set_circularity">set_circularity()</h3>
+<div class="paragraph"><p>set if the path is circular(start of the given node and return on it) or not</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+g.path_handle: a reference to a path
+</p>
+</dd>
+<dt class="hdlist1">
+*-arg1
+</dt>
+<dd>
+<p>
+bool: True or False. False, by default, we get the forward handle
+</p>
+</dd>
+</dl></div>
+</div>
+<div class="sect2">
+<h3 id="set_id_increment">set_id_increment()</h3>
+<div class="paragraph"><p>defines a base increment for the node id space</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+int: value
+</p>
+</dd>
+</dl></div>
+</div>
+<div class="sect2">
+<h3 id="set_step">set_step()</h3>
+<div class="paragraph"><p>set the step to the given handle, possibility re-linking and cleaning up if needed</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+g.step_handle: a reference to a single step of a path on one node traversal
+</p>
+</dd>
+<dt class="hdlist1">
+*-arg1
+</dt>
+<dd>
+<p>
+g.handle: pass a value of a node identifier (id) of an handle
+</p>
+</dd>
+</dl></div>
+</div>
+<div class="sect2">
+<h3 id="steps_of_handle">steps_of_handle()</h3>
+<div class="paragraph"><p>return a list of the steps handle on a given handle
+The handle,allows us to refer to one strand of a single node, which is the smallest addressable unit in a variation graph</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+*-arg0
+</dt>
+<dd>
+<p>
+g.handle: pass a value of a node identifier (id) of an handle
+</p>
+</dd>
+<dt class="hdlist1">
+-*arg1
+</dt>
+<dd>
+<p>
+bool: True of False. False, by default, we get the forward handle
+</p>
+</dd>
+</dl></div>
+</div>
+<div class="sect2">
+<h3 id="to_gfa">to_gfa()</h3>
+<div class="paragraph"><p>display odgi.graph as a GFA</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>example:
+
+# ...
+# P x 1+,3+,5+,6+,8+,17+,18+,19+,11+,12+,14+,15+      *,*,*,*,*,*,*,*,*,*,*
+# P y 1+,2+,4+,6+,7+,17+,18+,19+,11+,12+,14+,15+      *,*,*,*,*,*,*,*,*,*,*
+# P z 1+,3+,5+,6+,7+,17+,18+,19+,10+,12+,13+,15+      *,*,*,*,*,*,*,*,*,*,*,*</code></pre>
+</div></div>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr /></div>
+<div id="footer">
+<div id="footer-text">
+Last updated
+ 2020-02-04 15:36:01 CET
+</div>
+</div>
+</body>
+</html>
