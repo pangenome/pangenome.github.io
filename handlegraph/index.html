@@ -1,0 +1,146 @@
+<h1 id="working-with-the-handlegraph-abstraction">Working with the HandleGraph abstraction</h1>
+<p><em>Variation graphs</em> combine sequences (usually DNA) with information about variation between them. They can be used to represent the mutual alignment of multiple genomes, or more simply, a single reference and variation found in a population. In these graphs, nodes are labeled with sequences. Edges represent allowed linkages between nodes. Paths, or walks traversing a series of nodes, represent sequences of interest.</p>
+<h2 id="basic-handlegraph-types">Basic HandleGraph types</h2>
+<p>To interact with these graphs in precise, programmatic ways, we need to be able to identify their basic elements. This is the core motivation behind the <a href="https://github.com/vgteam/libhandlegraph"><em>HandleGraph</em></a> abstraction used in odgi and other dynamic graph implementations in <a href="https://github.com/vgteam/libbdsg">libbdsg</a>. Because DNA sequence graphs have two strands, we need a more precise way of addressing elements in the graph than nodes, which implicitly represent both strands. The <em>handle</em>, which is the core concept in the Handle Graph abstraction, allows us to refer to one strand of a single node, which is the smallest addressable unit in a variation graph. Nodes have numeric identifiers (or _ID_s), and associated sequences. Edges link two handles. Paths are a series of steps which link a path identifier and a handle. Breaking this down (with reference to the C++ types), we have a set of references to graph elements:</p>
+<ul>
+<li><code>handle_t</code>: an oriented traversal of a node (an opaque 64-bit identifier)</li>
+<li><code>id_t</code>: a node identifier (a 64-bit number)</li>
+<li><code>edge_t</code>: a pair of <code>handle_t</code>s, where the edge is directed from the first member of the pair to the second</li>
+<li><code>path_handle_t</code>: a reference to a path (an opaque 64-bit identifier)</li>
+<li><code>step_handle_t</code>: a reference to a single step of a path on one node traversal (an opaque 128-bit identifier)</li>
+</ul>
+<p>The handle types are “opaque” in that they don’t directly correspond to an external identifier. For instance, the <code>path_handle_t</code> is just a 64-bit type, not a path name that would have been used in the <a href="https://github.com/GFA-spec/GFA-spec">GFA</a> serialization that we loaded the graph from. The abstraction provides no guarantees about the order or meaning of the identifiers, but they are guaranteed to be stable as long as we don’t modify the graph.</p>
+<h2 id="design-considerations-that-lead-to-the-handlegraph-abstraction">Design considerations that lead to the HandleGraph abstraction</h2>
+<p>You might wonder why we use these opaque references to these elements, rather than more literal identifiers. For instance, we could refer to paths by their names, and steps by path names and indexes in the path. We could just refer to nodes by their IDs.</p>
+<p>The basic problem is that the representation of large, dynamic sequence graphs requires careful data structure design that often makes accessing elements by their literal names expensive. Except for very small or simple graphs, we can’t expect to be able to save a copy of each path name for every node it traverses. Instead, we encode some identifier that refers to the path. By using a generic identifier, we are able to encode the reference in a succinct, packed, or even implict manner that can be memory efficient.</p>
+<p>Graph implementations that provide the HandleGraph API can thus have internal identifiers for graph elements that provide good performance for functions that interact with, query, or traverse the graph. Defining an abstract handle type allows each implementation to choose the right internal identifier model to use. In the HandleGraph API, functions are provided to convert between these internal identifiers and external ones. For instance, given a <code>handle_t</code>, you can ask the graph to tell you what node <code>id_t</code> and orientation (forward or reverse complement) it represents. We can ask the graph to give us the <code>path_handle_t</code> corresponding to a given path name, or find which <code>path_handle_t</code> and <code>handle_t</code> a given <code>step_handle_t</code> references.</p>
+<h2 id="why-should-we-use-a-handlegraph-implementation">Why should we use a HandleGraph implementation?</h2>
+<p>Naive implementations of graph genomic data structures can consume tens of bytes per input graph. So a GFA file of 30GB, a typical size for a whole human genome graph including the 1000 Genomes Projects variation, might be impossible to load on typical systems available (as of 2020). (The initial VG implementation required 300GB to load the 30GB human genome variation graph.) HandleGraph implementations developed by the vgteam resolve this issue through careful use of succinct data structures. For most of these implementations, including odgi, the in-memory size of the graph data structures is around the same as the uncompressed input GFA. At the same time, these models provide efficient random access to (and in most cases, modification of) all of the graph elements.</p>
+<p>Our goal with the HandleGraph API is to provide a consistent and reasoned interface to these graphs that allows for the development of algorithms independent of the particular internals of a given graph data structure. This frees users (bioinformatics and genomics researchers and developers) to focus on algorithms that operate at a higher level, without worrying about the details of efficient graph data structure implementations. Our hope is that, by working with this consistent interface, we can develop libraries of standard algorithms that achieve common goals in graph genomic operations, thus reducing the effort required to work with genome graphs.</p>
+<h2 id="the-handlegraph-api-hierarchy">The HandleGraph API hierarchy</h2>
+<p>The libhandlegraph APIs describe a hierarchy of increasingly complex capabilities, from <a href="https://github.com/vgteam/libhandlegraph/blob/master/src/include/handlegraph/handle_graph.hpp">simple static variation graphs without paths</a>, to <a href="https://github.com/vgteam/libhandlegraph/blob/master/src/include/handlegraph/mutable_handle_graph.hpp">mutable graphs</a> with <a href="https://github.com/vgteam/libhandlegraph/blob/master/src/include/handlegraph/mutable_path_handle_graph.hpp">paths</a> and <a href="https://github.com/vgteam/libhandlegraph/blob/master/src/include/handlegraph/path_position_handle_graph.hpp">positional indexes</a>.</p>
+<p>This hierarchy allows us to build a consistent interface to implementations that may be optimial in a particular application but which lack generic functionality. For example, a static graph which cannot be modified is usually more efficient in terms of memory and access time than a dynamic graph, but it will not be able to match parts of the API which require modification of the graph.</p>
+<p>In this document, we’ll avoid the complexity of this C++ API hierarchy, and focus on the most generic type of graph, the <code>MutablePathDeletableHandleGraph</code> model implemented in <a href="https://github.com/vgteam/odgi/blob/master/src/odgi.hpp"><code>odgi</code></a>, the <a href="https://github.com/vgteam/libbdsg/blob/master/include/bdsg/packed_graph.hpp"><code>PackedGraph</code></a> and <a href="https://github.com/vgteam/libbdsg/blob/master/include/bdsg/hash_graph.hpp"><code>HashGraph</code></a> from libbdsg. This model allows both query and modification (deletion, addition, division, unification) of all graph elements. As such, it is suitable for generic operations on genome graphs, both their construction and interrogation.</p>
+<h2 id="odgis-python-api">odgi’s python API</h2>
+<p>Most of the elements in the HandleGraph API are <a href="https://github.com/vgteam/odgi/blob/master/src/pythonmodule.cpp">wrapped in a python module</a>. Python makes for good pseudocode, and so we can use it here to provide some examples of how to work with the HandleGraph abstraction.</p>
+<h3 id="loading-a-graph">Loading a graph</h3>
+<p>Given a <a href="assets/lil.gfa">graph in GFA format</a>, we can build the odgi serialization of it using <code>odgi build</code>.</p>
+<figure>
+<img src="assets/lil.png" alt="example graph" /><figcaption>example graph</figcaption>
+</figure>
+<div class="sourceCode" id="cb1"><pre class="sourceCode txt"><code class="sourceCode default"><a class="sourceLine" id="cb1-1" title="1">H   VN:Z:1.0</a>
+<a class="sourceLine" id="cb1-2" title="2">S   1   CAAATAAG</a>
+<a class="sourceLine" id="cb1-3" title="3">S   2   A</a>
+<a class="sourceLine" id="cb1-4" title="4">S   3   G</a>
+<a class="sourceLine" id="cb1-5" title="5">S   4   T</a>
+<a class="sourceLine" id="cb1-6" title="6">S   5   C</a>
+<a class="sourceLine" id="cb1-7" title="7">S   6   TTG</a>
+<a class="sourceLine" id="cb1-8" title="8">S   7   A</a>
+<a class="sourceLine" id="cb1-9" title="9">S   8   G</a>
+<a class="sourceLine" id="cb1-10" title="10">S   9   AAATTTTCTGGAGTTCTAT</a>
+<a class="sourceLine" id="cb1-11" title="11">S   10  A</a>
+<a class="sourceLine" id="cb1-12" title="12">S   11  T</a>
+<a class="sourceLine" id="cb1-13" title="13">S   12  ATAT</a>
+<a class="sourceLine" id="cb1-14" title="14">S   13  A</a>
+<a class="sourceLine" id="cb1-15" title="15">S   14  T</a>
+<a class="sourceLine" id="cb1-16" title="16">S   15  CCAACTCTCTG</a>
+<a class="sourceLine" id="cb1-17" title="17">P   x   1+,3+,5+,6+,8+,9+,11+,12+,14+,15+   8M,1M,1M,3M,1M,19M,1M,4M,1M,11M</a>
+<a class="sourceLine" id="cb1-18" title="18">P   y   1+,2+,4+,6+,7+,9+,11+,12+,14+,15+   8M,1M,1M,3M,1M,19M,1M,4M,1M,11M</a>
+<a class="sourceLine" id="cb1-19" title="19">P   z   1+,3+,5+,6+,7+,9+,10+,12+,13+,15+   8M,1M,1M,3M,1M,19M,1M,4M,1M,11M</a>
+<a class="sourceLine" id="cb1-20" title="20">L   1   +   2   +   0M</a>
+<a class="sourceLine" id="cb1-21" title="21">L   1   +   3   +   0M</a>
+<a class="sourceLine" id="cb1-22" title="22">L   2   +   4   +   0M</a>
+<a class="sourceLine" id="cb1-23" title="23">L   2   +   5   +   0M</a>
+<a class="sourceLine" id="cb1-24" title="24">L   3   +   4   +   0M</a>
+<a class="sourceLine" id="cb1-25" title="25">L   3   +   5   +   0M</a>
+<a class="sourceLine" id="cb1-26" title="26">L   4   +   6   +   0M</a>
+<a class="sourceLine" id="cb1-27" title="27">L   5   +   6   +   0M</a>
+<a class="sourceLine" id="cb1-28" title="28">L   6   +   7   +   0M</a>
+<a class="sourceLine" id="cb1-29" title="29">L   6   +   8   +   0M</a>
+<a class="sourceLine" id="cb1-30" title="30">L   7   +   9   +   0M</a>
+<a class="sourceLine" id="cb1-31" title="31">L   8   +   9   +   0M</a>
+<a class="sourceLine" id="cb1-32" title="32">L   9   +   10  +   0M</a>
+<a class="sourceLine" id="cb1-33" title="33">L   9   +   11  +   0M</a>
+<a class="sourceLine" id="cb1-34" title="34">L   10  +   12  +   0M</a>
+<a class="sourceLine" id="cb1-35" title="35">L   11  +   12  +   0M</a>
+<a class="sourceLine" id="cb1-36" title="36">L   12  +   13  +   0M</a>
+<a class="sourceLine" id="cb1-37" title="37">L   12  +   14  +   0M</a>
+<a class="sourceLine" id="cb1-38" title="38">L   13  +   15  +   0M</a>
+<a class="sourceLine" id="cb1-39" title="39">L   14  +   15  +   0M</a></code></pre></div>
+<p>Transforming the graph into odgi’s succinct self index:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="ex">odgi</span> build -g lil.gfa -o lil.odgi</a></code></pre></div>
+<p>We can now load this into python, using the odgi python module:</p>
+<p>First, we need to make sure our <code>PYTHONPATH</code> environment variable points to the directory where our python module file lives. Assuming we built <code>odgi</code> in our home directory, we could do this:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" title="1"><span class="va">PYTHONPATH=</span>~/odgi/lib <span class="ex">python3</span></a></code></pre></div>
+<p>Now we can load the graph and check how big it is:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" title="1"><span class="im">import</span> odgi</a>
+<a class="sourceLine" id="cb4-2" title="2"></a>
+<a class="sourceLine" id="cb4-3" title="3">g <span class="op">=</span> odgi.graph() <span class="co"># instatiate a graph</span></a>
+<a class="sourceLine" id="cb4-4" title="4">g.load(<span class="st">&#39;lil.odgi&#39;</span>)</a>
+<a class="sourceLine" id="cb4-5" title="5">g.get_node_count() <span class="co"># 15</span></a></code></pre></div>
+<h3 id="interrogating-parts-of-the-graph">Interrogating parts of the graph</h3>
+<p>We can examine an individual node:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" title="1">h <span class="op">=</span> g.get_handle(<span class="dv">9</span>)</a>
+<a class="sourceLine" id="cb5-2" title="2">g.get_id(h) <span class="co"># returns 9</span></a>
+<a class="sourceLine" id="cb5-3" title="3">g.get_is_reverse(h)  <span class="co"># False, by default, we get the forward handle</span></a>
+<a class="sourceLine" id="cb5-4" title="4">r <span class="op">=</span> g.get_handle(<span class="dv">9</span>, <span class="va">True</span>)  <span class="co"># get the reverse handle</span></a>
+<a class="sourceLine" id="cb5-5" title="5">g.get_is_reverse(r)  <span class="co"># True, this handle is reverse</span></a>
+<a class="sourceLine" id="cb5-6" title="6"><span class="bu">print</span>(g.get_sequence(h))  <span class="co"># AAATTTTCTGGAGTTCTAT --- same as the node in the graph</span></a>
+<a class="sourceLine" id="cb5-7" title="7"><span class="bu">print</span>(g.get_sequence(r))  <span class="co"># ATAGAACTCCAGAAAATTT --- the reverse complement</span></a></code></pre></div>
+<p>And we can check which paths overlap nodes:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" title="1">h <span class="op">=</span> g.get_handle(<span class="dv">11</span>)</a>
+<a class="sourceLine" id="cb6-2" title="2">g.for_each_step_on_handle(h,</a>
+<a class="sourceLine" id="cb6-3" title="3">    <span class="kw">lambda</span> s: <span class="bu">print</span>(g.get_path_name(g.get_path_handle_of_step(s))))</a>
+<a class="sourceLine" id="cb6-4" title="4"><span class="co"># x</span></a>
+<a class="sourceLine" id="cb6-5" title="5"><span class="co"># y</span></a>
+<a class="sourceLine" id="cb6-6" title="6">g.for_each_step_on_handle(g.get_handle(<span class="dv">9</span>),</a>
+<a class="sourceLine" id="cb6-7" title="7">    <span class="kw">lambda</span> s: <span class="bu">print</span>(g.get_path_name(g.get_path_handle_of_step(s))))</a>
+<a class="sourceLine" id="cb6-8" title="8"><span class="co"># x</span></a>
+<a class="sourceLine" id="cb6-9" title="9"><span class="co"># y</span></a>
+<a class="sourceLine" id="cb6-10" title="10"><span class="co"># z</span></a></code></pre></div>
+<h3 id="iterating-over-graph-elements">Iterating over graph elements</h3>
+<p>Matching the C++ API, most of the methods of iterating over elements in the graph use callback functions (note our use of lambda’s above). In the current version of the python API, this causes some difficulty, as python lacks true functional <a href="https://en.wikipedia.org/wiki/Closure_(computer_programming)">closures</a> and prevents assignments within callbacks. Future versions of this API we provide generator functions thot support memory-efficient and pythonic iteration over graph elements.</p>
+<p>For instance, to iterate over our nodes, we can call <code>for_each_handle</code>, which will invoke a callback for each forward handle in our graph.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb7-1" title="1">g.for_each_handle(<span class="kw">lambda</span> h: <span class="bu">print</span>(g.get_id(h), g.get_sequence(h)))</a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="co"># writes out each node id and its sequence</span></a></code></pre></div>
+<p>We can enumerate the paths and get their names:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb8-1" title="1">g.for_each_path_handle(<span class="kw">lambda</span> p: <span class="bu">print</span>(g.get_path_name(p)))</a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="co"># x</span></a>
+<a class="sourceLine" id="cb8-3" title="3"><span class="co"># y</span></a>
+<a class="sourceLine" id="cb8-4" title="4"><span class="co"># z</span></a></code></pre></div>
+<p>And we can iterate over the steps in a given path, finding which node and orientation each step has:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb9-1" title="1"><span class="co"># a function to call for each step in the path</span></a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="kw">def</span> process_step(s):</a>
+<a class="sourceLine" id="cb9-3" title="3">    h <span class="op">=</span> g.get_handle_of_step(s) <span class="co"># gets the handle (both node and orientation) of the step</span></a>
+<a class="sourceLine" id="cb9-4" title="4">    is_rev <span class="op">=</span> g.get_is_reverse(h)</a>
+<a class="sourceLine" id="cb9-5" title="5">    <span class="bu">id</span> <span class="op">=</span> g.get_id(h)</a>
+<a class="sourceLine" id="cb9-6" title="6">    <span class="cf">return</span> <span class="bu">str</span>(<span class="bu">id</span>) <span class="op">+</span> (<span class="st">&quot;+&quot;</span> <span class="cf">if</span> <span class="kw">not</span> is_rev <span class="cf">else</span> <span class="st">&quot;-&quot;</span>)</a>
+<a class="sourceLine" id="cb9-7" title="7"></a>
+<a class="sourceLine" id="cb9-8" title="8">p <span class="op">=</span> g.get_path_handle(<span class="st">&#39;z&#39;</span>)</a>
+<a class="sourceLine" id="cb9-9" title="9">q <span class="op">=</span> []</a>
+<a class="sourceLine" id="cb9-10" title="10">g.for_each_step_in_path(p, <span class="kw">lambda</span> s: q.append(process_step(s)))</a>
+<a class="sourceLine" id="cb9-11" title="11"><span class="bu">print</span>(g.get_path_name(p), <span class="st">&quot;,&quot;</span>.join(q))</a>
+<a class="sourceLine" id="cb9-12" title="12"><span class="co"># z 1+,3+,5+,6+,7+,9+,10+,12+,13+,15+</span></a></code></pre></div>
+<h2 id="modifying-the-graph">Modifying the graph</h2>
+<p>It’s possible to add and delete nodes from the graph using the python API:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb10-1" title="1">g.get_node_count() <span class="co"># 15</span></a>
+<a class="sourceLine" id="cb10-2" title="2">h <span class="op">=</span> g.create_handle(<span class="st">&quot;GATTACA&quot;</span>)</a>
+<a class="sourceLine" id="cb10-3" title="3">g.get_node_count() <span class="co"># 16</span></a></code></pre></div>
+<p>We can also add edges:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb11-1" title="1">g.create_edge(g.get_handle(<span class="dv">15</span>), h) <span class="co"># connects node 15 to 16</span></a></code></pre></div>
+<p>And add path steps:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb12-1" title="1">h <span class="op">=</span> g.get_handle(<span class="dv">16</span>)</a>
+<a class="sourceLine" id="cb12-2" title="2">p <span class="op">=</span> g.get_path_handle(<span class="st">&#39;z&#39;</span>)</a>
+<a class="sourceLine" id="cb12-3" title="3">g.append_step(p, h)</a></code></pre></div>
+<p>Path <code>z</code> now ends at 16+, and running the path enumeration code above would yield:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode txt"><code class="sourceCode default"><a class="sourceLine" id="cb13-1" title="1">z 1+,3+,5+,6+,7+,9+,10+,12+,13+,15+,16+</a></code></pre></div>
+<p>We can divide a node without breaking the paths that overlap it:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb14-1" title="1">g.divide_handle(g.get_handle(<span class="dv">9</span>), [<span class="dv">3</span>,<span class="dv">7</span>])</a></code></pre></div>
+<p>Assuming you’ve executed all the code up to this point, the paths now walk through new nodes 17, 18, and 19 in place of node 9.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb15-1" title="1">g.to_gfa()</a>
+<a class="sourceLine" id="cb15-2" title="2"><span class="co"># ...</span></a>
+<a class="sourceLine" id="cb15-3" title="3"><span class="co"># P x 1+,3+,5+,6+,8+,17+,18+,19+,11+,12+,14+,15+      *,*,*,*,*,*,*,*,*,*,*</span></a>
+<a class="sourceLine" id="cb15-4" title="4"><span class="co"># P y 1+,2+,4+,6+,7+,17+,18+,19+,11+,12+,14+,15+      *,*,*,*,*,*,*,*,*,*,*</span></a>
+<a class="sourceLine" id="cb15-5" title="5"><span class="co"># P z 1+,3+,5+,6+,7+,17+,18+,19+,10+,12+,13+,15+,16+  *,*,*,*,*,*,*,*,*,*,*,*</span></a></code></pre></div>
+<h2 id="summary">Summary</h2>
+<p>In this document, we’ve covered the basic concepts in the HandleGraph abstraction and used the odgi python library to explore some of them interactively. Although this interface is a work in progress, it should already provide enough material for researchers in genomics who want to work with genome graph data structures. HandleGraph implementations like odgi demonstrate that we can work with genome graphs even when they are large, with dense variation. These models lift limitations on graph structure that have been a persistent feature of other genome graph implementations. We believe that these limitations were motivated mostly by difficulty in managing the memory requirements of genome graphs. Given that this issue is difficult to resolve, we hope to provide a generic solution to it. This should provide a generic foundation for the use of genome graphs in bioinformatics, genomics, and population genetics.</p>
