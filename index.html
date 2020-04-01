@@ -8,24 +8,24 @@
 <link rel="stylesheet" href="style/Roboto.css">
 <link rel="stylesheet" href="style/font-awesome.min.css">
 <style>
-    html,
-    body,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        font-family: "Roboto", sans-serif;
-    }
+  html,
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Roboto", sans-serif;
+  }
 
-    .w3-sidebar {
-        z-index: 3;
-        width: 250px;
-        top: 43px;
-        bottom: 0;
-        height: inherit;
-    }
+  .w3-sidebar {
+    z-index: 3;
+    width: 250px;
+    top: 43px;
+    bottom: 0;
+    height: inherit;
+  }
 </style>
 
 <body>
@@ -47,8 +47,8 @@
     </div>
     -->
 
-    <!-- Sidebar -->
-    <!--
+  <!-- Sidebar -->
+  <!--
     <nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
         <a href="javascript:void(0)" onclick="w3_close()"
             class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
@@ -62,227 +62,235 @@
     </nav>
     -->
 
-    <!-- Overlay effect when opening sidebar on small screens -->
-    <!--
+  <!-- Overlay effect when opening sidebar on small screens -->
+  <!--
     <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu"
         id="myOverlay"></div>
     -->
 
-    <!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
+  <!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
 
 
-    <div class="w3-main"> <!-- style="margin-left:250px">  -->
-      <div class="w3-third w3-container">
-        <h1>Practical Graphical Pangenomics</h1>
-        <h3>tools and workflows based on genome variation graphs</h3>
-        <p>
-          Standard approaches to genome inference and analysis relate sequences to a single linear reference genome.
-          This is efficient but has a fundamental problem:
-          Differences from this reference are hard to observe and describe in a coherent way.
-          Variation and sequence are separated.
-        </p>
-        <p>
-          Pangenomic methods allow us to relate all genomes or sequences in our analysis directly to each other.
-          Sequence and variation are combined into a coherent data structure.
-          This practice is still new, and research into ways to design, implement, and apply this model is ongoing.
-          However, there is a growing consensus around best practices.
-          Many methods work on an augmented sequence graph model and use a handful of common data formats for input and output.
-        </p>
-        <p>
-          The <i>variation graph</i> data model describes the all-to-all alignment of many sequences (genomes or genes for instance) as walks through a graph whose nodes are labeled with DNA sequences.
-          Here, we document tools and workflows that operate on this graphical pangenomic data model.
-          Our goal is to provide greater clarity for students and scientists working with this new paradigm for genomic research.
-        </p>
-      </div>
+  <div class="w3-main">
+    <!-- style="margin-left:250px">  -->
+    <div class="w3-third w3-container">
+      <h1>Practical Graphical Pangenomics</h1>
+      <h3>tools and workflows based on genome variation graphs</h3>
+      <p>
+        Standard approaches to genome inference and analysis relate sequences to a single linear reference genome.
+        This is efficient but has a fundamental problem:
+        Differences from this reference are hard to observe and describe in a coherent way.
+        Variation and sequence are separated.
+      </p>
+      <p>
+        Pangenomic methods allow us to relate all genomes or sequences in our analysis directly to each other.
+        Sequence and variation are combined into a coherent data structure.
+        This practice is still new, and research into ways to design, implement, and apply this model is ongoing.
+        However, there is a growing consensus around best practices.
+        Many methods work on an augmented sequence graph model and use a handful of common data formats for input and
+        output.
+      </p>
+      <p>
+        The <i>variation graph</i> data model describes the all-to-all alignment of many sequences (genomes or genes for
+        instance) as walks through a graph whose nodes are labeled with DNA sequences.
+        Here, we document tools and workflows that operate on this graphical pangenomic data model.
+        Our goal is to provide greater clarity for students and scientists working with this new paradigm for genomic
+        research.
+      </p>
+    </div>
 
-      <a name="vg"></a>
-      <div class="w3-third w3-container">
-        <h2>vg</h2>
-        <p>
-          The variation graph toolkit <strong><a href="https://github.com/vgteam/vg">vg</a></strong> provides computational methods for
-          creating and manipulating of genome variation graphs. It's pangenome representation of a set of genomes overcomes
-          reference bias and improves read mapping. This is highlighted in the 
-          <a href="https://www.nature.com/articles/nbt.4227">Nature Biotechnology publication</a>. 
-          <strong>vg</strong> also implements the <a href="#libhandlegraph">libhandlegraph</a> API.
-          <h4>Support</h4>
-          Users can receive support on <a href="https://www.biostars.org/t/vg/"><strong>vg</strong>'s Biostars page</a>.
-        </p>
-      </div>
+    <a name="vg"></a>
+    <div class="w3-third w3-container">
+      <h2>vg</h2>
+      <p>
+        The variation graph toolkit <strong><a href="https://github.com/vgteam/vg">vg</a></strong> provides
+        computational methods for
+        creating and manipulating of genome variation graphs. It's pangenome representation of a set of genomes
+        overcomes
+        reference bias and improves read mapping. This is highlighted in the
+        <a href="https://www.nature.com/articles/nbt.4227">Nature Biotechnology publication</a>.
+        <strong>vg</strong> also implements the <a href="#libhandlegraph">libhandlegraph</a> API.
+        <h4>Support</h4>
+        Users can receive support on <a href="https://www.biostars.org/t/vg/"><strong>vg</strong>'s Biostars page</a>.
+      </p>
+    </div>
 
-      <a name="xg"></a>
-      <div class="w3-third w3-container">
-        <h2>xg</h2>
-        <p>
-          The succinct graph index <a href="https://github.com/vgteam/xg">xg</a> presents a static index
-          of nodes, edges and paths of a variation graph. It also also implements the <a href="#libhandlegraph">libhandlegraph</a> API.
-        </p>
-      </div>
+    <a name="xg"></a>
+    <div class="w3-third w3-container">
+      <h2>xg</h2>
+      <p>
+        The succinct graph index <a href="https://github.com/vgteam/xg">xg</a> presents a static index
+        of nodes, edges and paths of a variation graph. It also also implements the <a
+          href="#libhandlegraph">libhandlegraph</a> API.
+      </p>
+    </div>
 
-      <a name="gwbt"></a>
-      <div class="w3-third w3-container">
-        <h2>GWBT</h2>
-        <p>
-          <strong><a href="https://github.com/jltsiren/gbwt">GWBT</a> -</strong> <strong>Graph BWT</strong> 
-          is a substring index for paths in a <a href="#vg">variation graph</a>. 
-          It is based on the positional Burrows-Wheeler transform (PBWT) and independently implements its graph extension (gPBWT).
-          <h3>Documentation</h3>
-          For documentation see the
-          <a href="https://github.com/jltsiren/gbwt/wiki">wiki</a> of <strong>GBWT</strong>.
-        </p>
-      </div>
+    <a name="gwbt"></a>
+    <div class="w3-third w3-container">
+      <h2>GWBT</h2>
+      <p>
+        <strong><a href="https://github.com/jltsiren/gbwt">GWBT</a> -</strong> <strong>Graph BWT</strong>
+        is a substring index for paths in a <a href="#vg">variation graph</a>.
+        It is based on the positional Burrows-Wheeler transform (PBWT) and independently implements its graph extension
+        (gPBWT).
+        <h3>Documentation</h3>
+        For documentation see the
+        <a href="https://github.com/jltsiren/gbwt/wiki">wiki</a> of <strong>GBWT</strong>.
+      </p>
+    </div>
 
-      <a name="pg"></a>
-      <div class="w3-row w3-padding-64">
-          <div class="w3-twothird w3-container">
-              <h1 class="w3-text-teal">pg</h1>
-              <p>
-                  <strong><a href="https://github.com/vgteam/libbdsg/blob/master/src/packed_graph.cpp">Pg</a> - PackedGraph</strong> 
-                  is implemented having a very low memory footprint in mind. For more details see the 
-                  <a href="https://github.com/vgteam/handlegraph-paper">handle graph API comparison paper</a>.
-              </p>
-          </div>
-      </div>
+    <a name="pg"></a>
+    <div class="w3-third w3-container">
+      <h2>pg</h2>
+      <p>
+        <strong><a href="https://github.com/vgteam/libbdsg/blob/master/src/packed_graph.cpp">Pg</a> -
+          PackedGraph</strong>
+        is implemented having a very low memory footprint in mind. For more details see the
+        <a href="https://github.com/vgteam/handlegraph-paper">handle graph API comparison paper</a>.
+      </p>
+    </div>
+  </div>
 
-      <a name="hg"></a>
-      <div class="w3-row w3-padding-64">
-          <div class="w3-twothird w3-container">
-              <h1 class="w3-text-teal">hg</h1>
-              <p>
-                  The major goal of <strong><a href="https://github.com/vgteam/libbdsg/blob/master/src/hash_graph.cpp">hg</a> - HashGraph</strong> 
-                  is to bring speed to graphs. For more details see the 
-                  <a href="https://github.com/vgteam/handlegraph-paper">handle graph API comparison paper</a>.
-              </p>
-          </div>
+  <a name="hg"></a>
+  <div class="w3-third w3-container">
+    <h2>hg</h2>
+    <p>
+      The major goal of <strong><a href="https://github.com/vgteam/libbdsg/blob/master/src/hash_graph.cpp">hg</a> -
+        HashGraph</strong>
+      is to bring speed to graphs. For more details see the
+      <a href="https://github.com/vgteam/handlegraph-paper">handle graph API comparison paper</a>.
+    </p>
+  </div>
 
-      <a name="odgi"></a>
-      <div class="w3-third w3-container">
-        <h2>odgi</h2>
-        <p>
-          <strong><a href="https://github.com/vgteam/odgi">Odgi</a></strong> 
-          <strong>- Optimized Dynamic Graph Implementation</strong> is set of tools for the in-memory
-          manipulation of
-          <a href="https://github.com/vgteam/vg">variation graphs</a>.
-          Representing large genomic graphs with minimal memory overhead requires a careful encoding of
-          the graph entities.
-          It is possible to build succinct, static data structures to store queryable graphs,
-          as in <a href="#xg">xg</a>, but dynamic data structures are more tricky to
-          implement.
+  <a name="odgi"></a>
+  <div class="w3-third w3-container">
+    <h2>odgi</h2>
+    <p>
+      <strong><a href="https://github.com/vgteam/odgi">Odgi</a></strong>
+      <strong>- Optimized Dynamic Graph Implementation</strong> is set of tools for the in-memory
+      manipulation of
+      <a href="https://github.com/vgteam/vg">variation graphs</a>.
+      Representing large genomic graphs with minimal memory overhead requires a careful encoding of
+      the graph entities.
+      It is possible to build succinct, static data structures to store queryable graphs,
+      as in <a href="#xg">xg</a>, but dynamic data structures are more tricky to
+      implement.
 
-          <h3>Data structure</h3>
-          <strong>Odgi</strong> follows the dynamic <a href="https://github.com/jltsiren/gbwt">GWBT</a>
-          in developing a byte-packed version of the graph and paths through it.
-          Each node is represented by a byte array into which we write variable length integers to
-          represent
-          <ol>
-            <li>the node sequence</li>
-            <li>its edges</li>
-            <li>the paths crossing the node.</li>
-          </ol>
-          The edges and path steps are recorded relativistically, as deltas between the current node id
-          and the
-          target node id,
-          where the node id corresponds to the rank in the global array of nodes. Graphs built from
-          biological
-          data sets tend
-          to have local partial order, and when sorted the stored deltas will tend to be small. This
-          allows them
-          to be compressed
-          with a variable length integer representation, resulting in a small in-memory footprint at the
-          cost of
-          packing and unpacking.
-                    </br>
-                    The savings are substantial. In partially ordered regions of the graph, most deltas will require
-                    only a
-                    single byte.
-                    The resulting implementation is able to load the whole genome 1000 Genomes Project graph
-                    (described in the publication on vg in Nature Biotechnology) in around 20GB of RAM.
-                    Initially, <strong>odgi</strong> has been developed to allow in-memory manipulation of graphs
-                    produced
-                    by the
-                    <a href="https://github.com/ekg/seqwish">seqwish</a> variation graph inducer.
+      <h3>Data structure</h3>
+      <strong>Odgi</strong> follows the dynamic <a href="https://github.com/jltsiren/gbwt">GWBT</a>
+      in developing a byte-packed version of the graph and paths through it.
+      Each node is represented by a byte array into which we write variable length integers to
+      represent
+      <ol>
+        <li>the node sequence</li>
+        <li>its edges</li>
+        <li>the paths crossing the node.</li>
+      </ol>
+      The edges and path steps are recorded relativistically, as deltas between the current node id
+      and the
+      target node id,
+      where the node id corresponds to the rank in the global array of nodes. Graphs built from
+      biological
+      data sets tend
+      to have local partial order, and when sorted the stored deltas will tend to be small. This
+      allows them
+      to be compressed
+      with a variable length integer representation, resulting in a small in-memory footprint at the
+      cost of
+      packing and unpacking.
+      </br>
+      The savings are substantial. In partially ordered regions of the graph, most deltas will require
+      only a
+      single byte.
+      The resulting implementation is able to load the whole genome 1000 Genomes Project graph
+      (described in the publication on vg in Nature Biotechnology) in around 20GB of RAM.
+      Initially, <strong>odgi</strong> has been developed to allow in-memory manipulation of graphs
+      produced
+      by the
+      <a href="https://github.com/ekg/seqwish">seqwish</a> variation graph inducer.
 
-                    <h3>Python bindings</h3>
-                    In order to ease the development of tools building on top of <strong>odgi</strong>,
-                    <a href="https://github.com/vgteam/odgi/blob/master/src/pythonmodule.cpp">Python bindings</a>
-                    via <a href="https://github.com/pybind/pybind11">pybind11</a> have been implemented.
-                    Detailed documentation of the bindings are given in <a href="odgi/odgipy.html">odgipy</a>, and usage examples
-                    can be found in a corresponding <a href="https://odgi.readthedocs.io/en/latest/rst/tutorial.html">tutorial</a>.
+      <h3>Python bindings</h3>
+      In order to ease the development of tools building on top of <strong>odgi</strong>,
+      <a href="https://github.com/vgteam/odgi/blob/master/src/pythonmodule.cpp">Python bindings</a>
+      via <a href="https://github.com/pybind/pybind11">pybind11</a> have been implemented.
+      Detailed documentation of the bindings are given in <a href="odgi/odgipy.html">odgipy</a>, and usage examples
+      can be found in a corresponding <a href="https://odgi.readthedocs.io/en/latest/rst/tutorial.html">tutorial</a>.
 
-                    <h3>Documentation</h3>
-                    The <a href="odgi/odgi_docs.html">odgi docs</a> provide detailed information of syntax and
-                    subcommand
-                    description.
-        </p>
-      </div>
+      <h3>Documentation</h3>
+      The <a href="odgi/odgi_docs.html">odgi docs</a> provide detailed information of syntax and
+      subcommand
+      description.
+    </p>
+  </div>
 
-      <a name="spodgi"></a>
-      <div class="w3-third w3-container">
-        <h2>spodgi</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-          et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Lorem ipsum
-          dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-          ea commodo consequat.</p>
-      </div>
+  <a name="spodgi"></a>
+  <div class="w3-third w3-container">
+    <h2>spodgi</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+      et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+      aliquip ex ea commodo consequat. Lorem ipsum
+      dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+      magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+      ea commodo consequat.</p>
+  </div>
 
-      <a name="libhandlegraph"></a>
-      <div class="w3-third w3-container">
-        <h2>libhandlegraph</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-          et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Lorem ipsum
-          dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-          ea commodo consequat.</p>
-      </div>
+  <a name="libhandlegraph"></a>
+  <div class="w3-third w3-container">
+    <h2>libhandlegraph</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+      et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+      aliquip ex ea commodo consequat. Lorem ipsum
+      dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+      magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+      ea commodo consequat.</p>
+  </div>
 
-      <a name="libbdsg"></a>
-      <div class="w3-third w3-container">
-        <h2>libbdsg</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-          et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Lorem ipsum
-          dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-          ea commodo consequat.</p>
-      </div>
+  <a name="libbdsg"></a>
+  <div class="w3-third w3-container">
+    <h2>libbdsg</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+      et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+      aliquip ex ea commodo consequat. Lorem ipsum
+      dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+      magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+      ea commodo consequat.</p>
+  </div>
 
-      <a name="seqwish"></a>
-      <div class="w3-third w3-container">
-        <h2>seqwish</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-          et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Lorem ipsum
-          dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-          ea commodo consequat.</p>
-      </div>
+  <a name="seqwish"></a>
+  <div class="w3-third w3-container">
+    <h2>seqwish</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+      et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+      aliquip ex ea commodo consequat. Lorem ipsum
+      dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+      magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+      ea commodo consequat.</p>
+  </div>
 
-      <a name="stm"></a>
-      <div class="w3-third w3-container">
-        <h2>Sequence Tube Map</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-          et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Lorem ipsum
-          dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-          ea commodo consequat.</p>
-      </div>
+  <a name="stm"></a>
+  <div class="w3-third w3-container">
+    <h2>Sequence Tube Map</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+      et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+      aliquip ex ea commodo consequat. Lorem ipsum
+      dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+      magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+      ea commodo consequat.</p>
+  </div>
 
-      <a name="pantograph"></a>
-      <div class="w3-third w3-container">
-        <h2>Pantograph</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-          et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Lorem ipsum
-          dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-          ea commodo consequat.</p>
-      </div>
+  <a name="pantograph"></a>
+  <div class="w3-third w3-container">
+    <h2>Pantograph</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+      et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+      aliquip ex ea commodo consequat. Lorem ipsum
+      dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+      magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+      ea commodo consequat.</p>
+  </div>
 
 
-        <!--
+  <!--
             <div class="w3-third w3-container">
                 <p class="w3-border w3-padding-large w3-padding-32 w3-center">AD</p>
                 <p class="w3-border w3-padding-large w3-padding-64 w3-center">AD</p>
@@ -290,8 +298,8 @@
             -->
 
 
-        <!-- END MAIN -->
-    </div>
+  <!-- END MAIN -->
+  </div>
 
 </body>
 
