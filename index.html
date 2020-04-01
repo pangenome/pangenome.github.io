@@ -164,62 +164,12 @@
 
   <a name="odgi"></a>
   <div class="w3-third w3-container">
-    <h2>odgi</h2>
+    <a href="odgi/index.html"><h2>odgi</h2></a>
     <p>
-      <strong><a href="https://github.com/vgteam/odgi">Odgi</a></strong>
-      <strong>- Optimized Dynamic Graph Implementation</strong> is set of tools for the in-memory
-      manipulation of
-      <a href="https://github.com/vgteam/vg">variation graphs</a>.
-      Representing large genomic graphs with minimal memory overhead requires a careful encoding of
-      the graph entities.
-      It is possible to build succinct, static data structures to store queryable graphs,
-      as in <a href="#xg">xg</a>, but dynamic data structures are more tricky to
-      implement.
-
-      <h3>Data structure</h3>
-      <strong>Odgi</strong> follows the dynamic <a href="https://github.com/jltsiren/gbwt">GWBT</a>
-      in developing a byte-packed version of the graph and paths through it.
-      Each node is represented by a byte array into which we write variable length integers to
-      represent
-      <ol>
-        <li>the node sequence</li>
-        <li>its edges</li>
-        <li>the paths crossing the node.</li>
-      </ol>
-      The edges and path steps are recorded relativistically, as deltas between the current node id
-      and the
-      target node id,
-      where the node id corresponds to the rank in the global array of nodes. Graphs built from
-      biological
-      data sets tend
-      to have local partial order, and when sorted the stored deltas will tend to be small. This
-      allows them
-      to be compressed
-      with a variable length integer representation, resulting in a small in-memory footprint at the
-      cost of
-      packing and unpacking.
-      </br>
-      The savings are substantial. In partially ordered regions of the graph, most deltas will require
-      only a
-      single byte.
-      The resulting implementation is able to load the whole genome 1000 Genomes Project graph
-      (described in the publication on vg in Nature Biotechnology) in around 20GB of RAM.
-      Initially, <strong>odgi</strong> has been developed to allow in-memory manipulation of graphs
-      produced
-      by the
-      <a href="https://github.com/ekg/seqwish">seqwish</a> variation graph inducer.
-
-      <h3>Python bindings</h3>
-      In order to ease the development of tools building on top of <strong>odgi</strong>,
-      <a href="https://github.com/vgteam/odgi/blob/master/src/pythonmodule.cpp">Python bindings</a>
-      via <a href="https://github.com/pybind/pybind11">pybind11</a> have been implemented.
-      Detailed documentation of the bindings are given in <a href="odgi/odgipy.html">odgipy</a>, and usage examples
-      can be found in a corresponding <a href="https://odgi.readthedocs.io/en/latest/rst/tutorial.html">tutorial</a>.
-
-      <h3>Documentation</h3>
-      The <a href="odgi/odgi_docs.html">odgi docs</a> provide detailed information of syntax and
-      subcommand
-      description.
+      <a href="odgi/index.html"><strong>odgi</strong></a>, the Optimized Dynamic (genome) Graph Interface, links a thrifty dynamic in-memory variation graph data model to a set of algorithms designed for scalable sorting, pruning, transformation, and visualization of very large genome graphs.
+      <strong>odgi</strong> includes <a href="odgi/odgipy.html">python bindings</a> that can be used to
+      <a href="https://odgi.readthedocs.io/en/latest/rst/tutorial.html">directly interface with its data model.</a>.
+      The <a href="odgi/odgi_docs.html">odgi manual</a> provides detailed information about its features and subcommands, including examples.
     </p>
   </div>
 
