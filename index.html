@@ -73,8 +73,8 @@
         <div class="w3-row w3-padding-64">
             <div class="w3-twothird w3-container">
                 <h1 class="w3-text-teal">Pangenomic tools and workflows</h1>
-                <p>This page shall serve as a one-stop shop for documenation of pangenome tools and workflows. 
-                    As of <a id="date"></a>, this is work in progress</p>
+                <p>This page shall serve as a one-stop shop for documentation of pangenome tools and workflows. 
+                    As of <a id="date"></a>, this is work in progress.</p>
             </div>
         </div>        
 
@@ -82,12 +82,16 @@
         <div class="w3-row w3-padding-64">
             <div class="w3-twothird w3-container">
                 <h1 class="w3-text-teal">vg</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Lorem ipsum
-                    dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-                    ea commodo consequat.</p>
+                <p>
+                    The variation graph toolkit <strong><a href="https://github.com/vgteam/vg">vg</a></strong> provides computational methods for
+                    creating and manipulating of genome variation graphs. It's pangenome representation of a set of genomes overcomes
+                    reference bias and improves read mapping. This is highlighted in the 
+                    <a href="https://www.nature.com/articles/nbt.4227">Nature Biotechnology publication</a>. 
+                    <strong>Vg</strong> also implements the <a href="#libhandlegraph">libhandlegraph</a> API.
+
+                    <h3>Support</h3>
+                    Users can receive support on <a href="https://www.biostars.org/t/vg/"><strong>vg</strong>'s Biostars page</a>.
+                </p>
             </div>
         </div>
 
@@ -95,12 +99,10 @@
         <div class="w3-row">
             <div class="w3-twothird w3-container">
                 <h1 class="w3-text-teal" name="xg">xg</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Lorem ipsum
-                    dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-                    ea commodo consequat.</p>
+                <p>
+                    The succinct graph index <a href="https://github.com/vgteam/xg">xg</a> presents a static index
+                    of nodes, edges and paths of a variation graph. It also also implements the <a href="#libhandlegraph">libhandlegraph</a> API.
+                </p>
             </div>
         </div>
 
@@ -108,12 +110,14 @@
         <div class="w3-row w3-padding-64">
             <div class="w3-twothird w3-container">
                 <h1 class="w3-text-teal">GWBT</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Lorem ipsum
-                    dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-                    ea commodo consequat.</p>
+                <p>
+                    <strong><a href="https://github.com/jltsiren/gbwt">GWBT</a> -</strong> <strong>Graph BWT</strong> 
+                    is a substring index for paths in a <a href="#vg">variation graph</a>. 
+                    It is based on the positional Burrows-Wheeler transform (PBWT) and independently implements its graph extension (gPBWT).
+                    <h3>Documentation</h3>
+                    For documentation see the
+                    <a href="https://github.com/jltsiren/gbwt/wiki">wiki</a> of <strong>GBWT</strong>.
+                </p>
             </div>
         </div>
 
@@ -155,7 +159,7 @@
                     Representing large genomic graphs with minimal memory overhead requires a careful encoding of
                     the graph entities.
                     It is possible to build succinct, static data structures to store queryable graphs,
-                    as in <a href="https://github.com/vgteam/xg">xg</a>, but dynamic data structures are more tricky to
+                    as in <a href="#xg">xg</a>, but dynamic data structures are more tricky to
                     implement.
 
                     <h3>Data structure</h3>
