@@ -82,6 +82,8 @@
         Differences from this reference are hard to observe and describe in a coherent way.
         Variation and sequence are separated.
       </p>
+      <a href="images/genomic-vs-pangenomic-analysis.png"><img src="images/genomic-vs-pangenomic-analysis.png" width="44%"></a>
+      <a href="images/genomic-vs-pangenomic-models.png"><img src="images/genomic-vs-pangenomic-models.png" width="55%"></a>
       <p>
         Pangenomic methods allow us to relate all genomes or sequences in our analysis directly to each other.
         Sequence and variation are combined into a coherent data structure.
@@ -93,6 +95,9 @@
       <p>
         The <i>variation graph</i> data model describes the all-to-all alignment of many sequences (genomes or genes for
         instance) as walks through a graph whose nodes are labeled with DNA sequences.
+      </p>
+      <a href="images/HLA-DRB1-3123-all-viz-caption.png"><img src="images/HLA-DRB1-3123-odgi-viz.png" width="100%"></a>
+      <p>
         Here, we document tools and workflows that operate on this graphical pangenomic data model.
         Our goal is to provide greater clarity for students and scientists working with this new paradigm for genomic
         research.
@@ -103,15 +108,20 @@
     <div class="w3-third w3-container">
       <h2>vg</h2>
       <p>
-        The variation graph toolkit <strong><a href="https://github.com/vgteam/vg">vg</a></strong> provides
-        computational methods for
-        creating and manipulating of genome variation graphs. It's pangenome representation of a set of genomes
-        overcomes
-        reference bias and improves read mapping. This is highlighted in the
-        <a href="https://www.nature.com/articles/nbt.4227">Nature Biotechnology publication</a>.
-        <strong>vg</strong> also implements the <a href="#libhandlegraph">libhandlegraph</a> API.
-        <h4>Support</h4>
+        The variation graph toolkit <strong><a href="https://github.com/vgteam/vg">vg</a></strong> provides computational methods for creating and manipulating of genome variation graphs. It's pangenome representation of a set of genomes overcomes reference bias and improves read mapping.
+        This is highlighted in the <a href="https://www.nature.com/articles/nbt.4227">Nature Biotechnology publication</a>.
         Users can receive support on <a href="https://www.biostars.org/t/vg/"><strong>vg</strong>'s Biostars page</a>.
+      </p>
+    </div>
+
+    <a name="odgi"></a>
+    <div class="w3-third w3-container">
+      <a href="odgi/index.html"><h2>odgi</h2></a>
+      <p>
+        <a href="odgi/index.html"><strong>odgi</strong></a>, the Optimized Dynamic (genome) Graph Interface, links a thrifty dynamic in-memory variation graph data model to a set of algorithms designed for scalable sorting, pruning, transformation, and visualization of very large genome graphs.
+        <strong>odgi</strong> includes <a href="odgi/odgipy.html">python bindings</a> that can be used to
+        <a href="https://odgi.readthedocs.io/en/latest/rst/tutorial.html">directly interface with its data model.</a>.
+        The <a href="odgi/odgi_docs.html">odgi manual</a> provides detailed information about its features and subcommands, including examples.
       </p>
     </div>
 
@@ -119,9 +129,10 @@
     <div class="w3-third w3-container">
       <h2>xg</h2>
       <p>
-        The succinct graph index <a href="https://github.com/vgteam/xg">xg</a> presents a static index
-        of nodes, edges and paths of a variation graph. It also also implements the <a
-          href="#libhandlegraph">libhandlegraph</a> API.
+        The succinct graph index <strong><a href="https://github.com/vgteam/xg">xg</a></strong> presents a static index of nodes, edges and paths of a variation graph.
+        <strong>xg</strong> can be used to annotate graph nodes with their reference path relative positions.
+        It was a key component of early development in <strong>vg</strong>, and was use to scale short read mapping to large genomes.
+        It implements the <a href="https://github.com/vgteam/libhandlegraph">libhandlegraph</a> API.
       </p>
     </div>
 
@@ -131,11 +142,8 @@
       <p>
         <strong><a href="https://github.com/jltsiren/gbwt">GWBT</a> -</strong> <strong>Graph BWT</strong>
         is a substring index for paths in a <a href="#vg">variation graph</a>.
-        It is based on the positional Burrows-Wheeler transform (PBWT) and independently implements its graph extension
-        (gPBWT).
-        <h3>Documentation</h3>
-        For documentation see the
-        <a href="https://github.com/jltsiren/gbwt/wiki">wiki</a> of <strong>GBWT</strong>.
+        It is based on the positional Burrows-Wheeler transform (PBWT) and independently implements its graph extension (gPBWT).
+        For documentation see the <a href="https://github.com/jltsiren/gbwt/wiki">wiki</a> of <strong>GBWT</strong>.
       </p>
     </div>
 
@@ -159,17 +167,6 @@
         HashGraph</strong>
       is to bring speed to graphs. For more details see the
       <a href="https://github.com/vgteam/handlegraph-paper">handle graph API comparison paper</a>.
-    </p>
-  </div>
-
-  <a name="odgi"></a>
-  <div class="w3-third w3-container">
-    <a href="odgi/index.html"><h2>odgi</h2></a>
-    <p>
-      <a href="odgi/index.html"><strong>odgi</strong></a>, the Optimized Dynamic (genome) Graph Interface, links a thrifty dynamic in-memory variation graph data model to a set of algorithms designed for scalable sorting, pruning, transformation, and visualization of very large genome graphs.
-      <strong>odgi</strong> includes <a href="odgi/odgipy.html">python bindings</a> that can be used to
-      <a href="https://odgi.readthedocs.io/en/latest/rst/tutorial.html">directly interface with its data model.</a>.
-      The <a href="odgi/odgi_docs.html">odgi manual</a> provides detailed information about its features and subcommands, including examples.
     </p>
   </div>
 
