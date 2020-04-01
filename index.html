@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<title>Pangenomic tools and workflows</title>
+<title>W3.CSS Template</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="style/w3.css">
+<link rel="stylesheet" href="style/w3-theme-black.css">
+<link rel="stylesheet" href="style/Roboto.css">
+<link rel="stylesheet" href="style/font-awesome.min.css">
 <style>
     html,
     body,
@@ -30,160 +30,166 @@
 
 <body>
 
-    <!-- Navbar -->
+  <!-- Navbar -->
+  <!--
     <div class="w3-top">
         <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
             <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1"
                 href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
             <a href="#" class="w3-bar-item w3-button w3-theme-l1">Logo</a>
             <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">About</a>
-            <a href="#stm" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Visualization</a>
+            <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Values</a>
+            <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">News</a>
+            <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
+            <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Clients</a>
+            <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Partners</a>
         </div>
     </div>
+    -->
 
     <!-- Sidebar -->
+    <!--
     <nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
         <a href="javascript:void(0)" onclick="w3_close()"
             class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
             <i class="fa fa-remove"></i>
         </a>
         <h4 class="w3-bar-item"><b>Menu</b></h4>
-        <a class="w3-bar-item w3-button w3-hover-black" href="#vg">vg</a>
-        <a class="w3-bar-item w3-button w3-hover-black" href="#xg">xg</a>
-        <a class="w3-bar-item w3-button w3-hover-black" href="#gwbt">GWBT</a>
-        <a class="w3-bar-item w3-button w3-hover-black" href="#pg">pg</a>
-        <a class="w3-bar-item w3-button w3-hover-black" href="#hg">hg</a>
-        <a class="w3-bar-item w3-button w3-hover-black" href="#odgi">odgi</a>
-        <a class="w3-bar-item w3-button w3-hover-black" href="#spodgi">spodgi</a>
-        <a class="w3-bar-item w3-button w3-hover-black" href="#libhandlegraph">libhandlegraph</a>
-        <a class="w3-bar-item w3-button w3-hover-black" href="#libbdsg">libbdsg</a>
-        <a class="w3-bar-item w3-button w3-hover-black" href="#seqwish">seqwish</a>
-        <a class="w3-bar-item w3-button w3-hover-black" href="#stm">Sequence Tube Map</a>
-        <a class="w3-bar-item w3-button w3-hover-black" href="#pantograph">Pantograph</a>
+        <a class="w3-bar-item w3-button w3-hover-black" href="#">Link</a>
+        <a class="w3-bar-item w3-button w3-hover-black" href="#">Link</a>
+        <a class="w3-bar-item w3-button w3-hover-black" href="#">Link</a>
+        <a class="w3-bar-item w3-button w3-hover-black" href="#">Link</a>
     </nav>
+    -->
 
     <!-- Overlay effect when opening sidebar on small screens -->
+    <!--
     <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu"
         id="myOverlay"></div>
+    -->
 
     <!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
-    <div class="w3-main" style="margin-left:250px">
 
-        <a name="pangenomic"></a>
-        <div class="w3-row w3-padding-64">
-            <div class="w3-twothird w3-container">
-                <h1 class="w3-text-teal">Pangenomic tools and workflows</h1>
-                <p>This page shall serve as a one-stop shop for documentation of pangenome tools and workflows. 
-                    As of <a id="date"></a>, this is work in progress.</p>
-            </div>
-        </div>        
 
-        <a name="vg"></a>
-        <div class="w3-row w3-padding-64">
-            <div class="w3-twothird w3-container">
-                <h1 class="w3-text-teal">vg</h1>
-                <p>
-                    The variation graph toolkit <strong><a href="https://github.com/vgteam/vg">vg</a></strong> provides computational methods for
-                    creating and manipulating of genome variation graphs. It's pangenome representation of a set of genomes overcomes
-                    reference bias and improves read mapping. This is highlighted in the 
-                    <a href="https://www.nature.com/articles/nbt.4227">Nature Biotechnology publication</a>. 
-                    <strong>Vg</strong> also implements the <a href="#libhandlegraph">libhandlegraph</a> API.
+    <div class="w3-main"> <!-- style="margin-left:250px"> -->
 
-                    <h3>Support</h3>
-                    Users can receive support on <a href="https://www.biostars.org/t/vg/"><strong>vg</strong>'s Biostars page</a>.
-                </p>
-            </div>
-        </div>
+      <div class="w3-twothird w3-container">
+        <h1>Practical Pangenomics</h1>
+        <h3>documenting tools and workflows based on genome variation graphs</h3>
+        <p>
+          Standard approaches to genomics relate sequences to a single linear reference genome.
+          This is efficient but has a fundamental problem:
+          Differences from this reference are hard to observe and describe in a coherent way.
+          Variation and sequence are separated.
+        </p>
+        <p>
+          Pangenomic methods allow us to relate all genomes or sequences in our analysis directly to each other.
+          Sequence and variation are combined into a coherent data structure.
+          This practice is still new, and research into ways to design, implement, and apply this model is ongoing.
+          However, there is a growing consensus around best practices.
+          Many methods work on an augmented sequence graph model and use a handful of common data formats for input and output.
+        </p>
+        <p>
+          The <i>variation graph</i> data model describes the all-to-all alignment of many sequences (genomes or genes for instance) as walks through a graph whose nodes are labeled with DNA sequences.
+          In these pages, we document tools and workflows that operate on this graphical pangenomic data model.
+          Our goal is to provide clarity for students and scientists working with this new paradigm for genomic research.
+        </p>
+      </div>
 
-        <a name="xg"></a>
-        <div class="w3-row">
-            <div class="w3-twothird w3-container">
-                <h1 class="w3-text-teal" name="xg">xg</h1>
-                <p>
-                    The succinct graph index <a href="https://github.com/vgteam/xg">xg</a> presents a static index
-                    of nodes, edges and paths of a variation graph. It also also implements the <a href="#libhandlegraph">libhandlegraph</a> API.
-                </p>
-            </div>
-        </div>
+      <a name="vg"></a>
+      <div class="w3-twothird w3-container">
+        <h2>vg</h2>
+        <p>
+          The variation graph toolkit <strong><a href="https://github.com/vgteam/vg">vg</a></strong> provides computational methods for
+          creating and manipulating of genome variation graphs. It's pangenome representation of a set of genomes overcomes
+          reference bias and improves read mapping. This is highlighted in the 
+          <a href="https://www.nature.com/articles/nbt.4227">Nature Biotechnology publication</a>. 
+          <strong>vg</strong> also implements the <a href="#libhandlegraph">libhandlegraph</a> API.
+          <h4>Support</h4>
+          Users can receive support on <a href="https://www.biostars.org/t/vg/"><strong>vg</strong>'s Biostars page</a>.
+        </p>
+      </div>
 
-        <a name="gwbt"></a>
-        <div class="w3-row w3-padding-64">
-            <div class="w3-twothird w3-container">
-                <h1 class="w3-text-teal">GWBT</h1>
-                <p>
-                    <strong><a href="https://github.com/jltsiren/gbwt">GWBT</a> -</strong> <strong>Graph BWT</strong> 
-                    is a substring index for paths in a <a href="#vg">variation graph</a>. 
-                    It is based on the positional Burrows-Wheeler transform (PBWT) and independently implements its graph extension (gPBWT).
-                    <h3>Documentation</h3>
-                    For documentation see the
-                    <a href="https://github.com/jltsiren/gbwt/wiki">wiki</a> of <strong>GBWT</strong>.
-                </p>
-            </div>
-        </div>
+      <a name="xg"></a>
+      <div class="w3-twothird w3-container">
+        <h2>xg</h2>
+        <p>
+          The succinct graph index <a href="https://github.com/vgteam/xg">xg</a> presents a static index
+          of nodes, edges and paths of a variation graph. It also also implements the <a href="#libhandlegraph">libhandlegraph</a> API.
+        </p>
+      </div>
 
-        <a name="pg"></a>
-        <div class="w3-row w3-padding-64">
-            <div class="w3-twothird w3-container">
-                <h1 class="w3-text-teal">pg</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Lorem ipsum
-                    dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-                    ea commodo consequat.</p>
-            </div>
-        </div>
+      <a name="gwbt"></a>
+      <div class="w3-twothird w3-container">
+        <h2>GWBT</h2>
+        <p>
+          <strong><a href="https://github.com/jltsiren/gbwt">GWBT</a> -</strong> <strong>Graph BWT</strong> 
+          is a substring index for paths in a <a href="#vg">variation graph</a>. 
+          It is based on the positional Burrows-Wheeler transform (PBWT) and independently implements its graph extension (gPBWT).
+          <h3>Documentation</h3>
+          For documentation see the
+          <a href="https://github.com/jltsiren/gbwt/wiki">wiki</a> of <strong>GBWT</strong>.
+        </p>
+      </div>
 
-        <a name="hg"></a>
-        <div class="w3-row w3-padding-64">
-            <div class="w3-twothird w3-container">
-                <h1 class="w3-text-teal">hg</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Lorem ipsum
-                    dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-                    ea commodo consequat.</p>
-            </div>
-        </div>
+      <a name="pg"></a>
+      <div class="w3-twothird w3-container">
+        <h2>pg</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+          et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Lorem ipsum
+          dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+          ea commodo consequat.</p>
+      </div>
 
-        <a name="odgi"></a>
-        <div class="w3-row w3-padding-64">
-            <div class="w3-twothird w3-container">
-                <h1 class="w3-text-teal">odgi</h1>
-                <p>
-                    <strong><a href="https://github.com/vgteam/odgi">Odgi</a></strong> 
-                    <strong>- Optimized Dynamic Graph Implementation</strong> is set of tools for the in-memory
-                    manipulation of
-                    <a href="https://github.com/vgteam/vg">variation graphs</a>.
-                    Representing large genomic graphs with minimal memory overhead requires a careful encoding of
-                    the graph entities.
-                    It is possible to build succinct, static data structures to store queryable graphs,
-                    as in <a href="#xg">xg</a>, but dynamic data structures are more tricky to
-                    implement.
+      <a name="hg"></a>
+      <div class="w3-twothird w3-container">
+        <h2>hg</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+          et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Lorem ipsum
+          dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+          ea commodo consequat.</p>
+      </div>
 
-                    <h3>Data structure</h3>
-                    <strong>Odgi</strong> follows the dynamic <a href="https://github.com/jltsiren/gbwt">GWBT</a>
-                    in developing a byte-packed version of the graph and paths through it.
-                    Each node is represented by a byte array into which we write variable length integers to
-                    represent
-                    <ol>
-                        <li>the node sequence</li>
-                        <li>its edges</li>
-                        <li>the paths crossing the node.</li>
-                    </ol>
-                    The edges and path steps are recorded relativistically, as deltas between the current node id
-                    and the
-                    target node id,
-                    where the node id corresponds to the rank in the global array of nodes. Graphs built from
-                    biological
-                    data sets tend
-                    to have local partial order, and when sorted the stored deltas will tend to be small. This
-                    allows them
-                    to be compressed
-                    with a variable length integer representation, resulting in a small in-memory footprint at the
-                    cost of
-                    packing and unpacking.
+      <a name="odgi"></a>
+      <div class="w3-twothird w3-container">
+        <h2>odgi</h2>
+        <p>
+          <strong><a href="https://github.com/vgteam/odgi">Odgi</a></strong> 
+          <strong>- Optimized Dynamic Graph Implementation</strong> is set of tools for the in-memory
+          manipulation of
+          <a href="https://github.com/vgteam/vg">variation graphs</a>.
+          Representing large genomic graphs with minimal memory overhead requires a careful encoding of
+          the graph entities.
+          It is possible to build succinct, static data structures to store queryable graphs,
+          as in <a href="#xg">xg</a>, but dynamic data structures are more tricky to
+          implement.
+
+          <h3>Data structure</h3>
+          <strong>Odgi</strong> follows the dynamic <a href="https://github.com/jltsiren/gbwt">GWBT</a>
+          in developing a byte-packed version of the graph and paths through it.
+          Each node is represented by a byte array into which we write variable length integers to
+          represent
+          <ol>
+            <li>the node sequence</li>
+            <li>its edges</li>
+            <li>the paths crossing the node.</li>
+          </ol>
+          The edges and path steps are recorded relativistically, as deltas between the current node id
+          and the
+          target node id,
+          where the node id corresponds to the rank in the global array of nodes. Graphs built from
+          biological
+          data sets tend
+          to have local partial order, and when sorted the stored deltas will tend to be small. This
+          allows them
+          to be compressed
+          with a variable length integer representation, resulting in a small in-memory footprint at the
+          cost of
+          packing and unpacking.
                     </br>
                     The savings are substantial. In partially ordered regions of the graph, most deltas will require
                     only a
@@ -205,147 +211,86 @@
                     The <a href="odgi/odgi_docs.html">odgi docs</a> provide detailed information of syntax and
                     subcommand
                     description.
-                </p>
-            </div>
-        </div>
+        </p>
+      </div>
 
-        <a name="spodgi"></a>
-        <div class="w3-row w3-padding-64">
-            <div class="w3-twothird w3-container">
-                <h1 class="w3-text-teal">spodgi</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Lorem ipsum
-                    dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-                    ea commodo consequat.</p>
-            </div>
-        </div>
+      <a name="spodgi"></a>
+      <div class="w3-twothird w3-container">
+        <h2>spodgi</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+          et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Lorem ipsum
+          dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+          ea commodo consequat.</p>
+      </div>
 
-        <a name="libhandlegraph"></a>
-        <div class="w3-row w3-padding-64">
-            <div class="w3-twothird w3-container">
-                <h1 class="w3-text-teal">libhandlegraph</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Lorem ipsum
-                    dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-                    ea commodo consequat.</p>
-            </div>
-        </div>
+      <a name="libhandlegraph"></a>
+      <div class="w3-twothird w3-container">
+        <h2>libhandlegraph</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+          et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Lorem ipsum
+          dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+          ea commodo consequat.</p>
+      </div>
 
-        <a name="libbdsg"></a>
-        <div class="w3-row w3-padding-64">
-            <div class="w3-twothird w3-container">
-                <h1 class="w3-text-teal">libbdsg</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Lorem ipsum
-                    dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-                    ea commodo consequat.</p>
-            </div>
-        </div>
+      <a name="libbdsg"></a>
+      <div class="w3-twothird w3-container">
+        <h2>libbdsg</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+          et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Lorem ipsum
+          dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+          ea commodo consequat.</p>
+      </div>
 
-        <a name="seqwish"></a>
-        <div class="w3-row w3-padding-64">
-            <div class="w3-twothird w3-container">
-                <h1 class="w3-text-teal">seqwish</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Lorem ipsum
-                    dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-                    ea commodo consequat.</p>
-            </div>
-        </div>
+      <a name="seqwish"></a>
+      <div class="w3-twothird w3-container">
+        <h2>seqwish</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+          et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Lorem ipsum
+          dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+          ea commodo consequat.</p>
+      </div>
 
-        <a name="stm"></a>
-        <div class="w3-row w3-padding-64">
-            <div class="w3-twothird w3-container">
-                <h1 class="w3-text-teal">Sequence Tube Map</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Lorem ipsum
-                    dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-                    ea commodo consequat.</p>
-            </div>
-        </div>
+      <a name="stm"></a>
+      <div class="w3-twothird w3-container">
+        <h2>Sequence Tube Map</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+          et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Lorem ipsum
+          dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+          ea commodo consequat.</p>
+      </div>
 
-        <a name="pantograph"></a>
-        <div class="w3-row w3-padding-64">
-            <div class="w3-twothird w3-container">
-                <h1 class="w3-text-teal">Pantograph</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Lorem ipsum
-                    dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-                    ea commodo consequat.</p>
-            </div>
-        </div>
+      <a name="pantograph"></a>
+      <div class="w3-twothird w3-container">
+        <h2>Pantograph</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+          et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Lorem ipsum
+          dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+          ea commodo consequat.</p>
+      </div>
 
-        <!-- Pagination -->
+
         <!--
-        <div class="w3-center w3-padding-32">
-            <div class="w3-bar">
-                <a class="w3-button w3-hover-black" href="#">1</a>
-                <a class="w3-button w3-hover-black" href="#">2</a>
-                <a class="w3-button w3-hover-black" href="#">3</a>
-                <a class="w3-button w3-hover-black" href="#">4</a>
-                <a class="w3-button w3-hover-black" href="#">5</a>
-                <a class="w3-button w3-hover-black" href="#">»</a>
+            <div class="w3-third w3-container">
+                <p class="w3-border w3-padding-large w3-padding-32 w3-center">AD</p>
+                <p class="w3-border w3-padding-large w3-padding-64 w3-center">AD</p>
             </div>
-        </div>
-        -->
+            -->
 
-        <footer id="myFooter">
-            <div class="w3-container w3-theme-l2 w3-padding-32">
-                <h4>Pangenome 2020</h4>
-            </div>
-
-            <div class="w3-container w3-theme-l1">
-                <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
-            </div>
-        </footer>
 
         <!-- END MAIN -->
     </div>
-
-    <script>
-        // Get the Sidebar
-        var mySidebar = document.getElementById("mySidebar");
-
-        // Get the DIV with overlay effect
-        var overlayBg = document.getElementById("myOverlay");
-
-        // Toggle between showing and hiding the sidebar, and add overlay effect
-        function w3_open() {
-            if (mySidebar.style.display === 'block') {
-                mySidebar.style.display = 'none';
-                overlayBg.style.display = "none";
-            } else {
-                mySidebar.style.display = 'block';
-                overlayBg.style.display = "block";
-            }
-        }
-
-        // Close the sidebar with the close button
-        function w3_close() {
-            mySidebar.style.display = "none";
-            overlayBg.style.display = "none";
-        }
-
-        // Current date
-        const n =  new Date();
-        const y = n.getFullYear();
-        const m = n.getMonth() + 1;
-        const d = n.getDate();
-        document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
-
-    </script>
 
 </body>
 
