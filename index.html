@@ -38,6 +38,8 @@
             <a href="#" class="w3-bar-item w3-button w3-theme-l1">Logo</a>
             <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">About</a>
             <a href="#stm" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Visualization</a>
+            <a href="#xg" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Indices</a>
+            <a href="#pg" class="w3-bar-item w3-button w3-hide-small w3-hover-white">HandleGraph</a>
         </div>
     </div>
 
@@ -125,12 +127,11 @@
         <div class="w3-row w3-padding-64">
             <div class="w3-twothird w3-container">
                 <h1 class="w3-text-teal">pg</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Lorem ipsum
-                    dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-                    ea commodo consequat.</p>
+                <p>
+                    <strong><a href="https://github.com/vgteam/libbdsg/blob/master/src/packed_graph.cpp">Pg</a> - PackedGraph</strong> 
+                    is implemented having a very low memory footprint in mind. For more details see the 
+                    <a href="https://github.com/vgteam/handlegraph-paper">handle graph API comparison paper</a>.
+                </p>
             </div>
         </div>
 
@@ -138,12 +139,11 @@
         <div class="w3-row w3-padding-64">
             <div class="w3-twothird w3-container">
                 <h1 class="w3-text-teal">hg</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Lorem ipsum
-                    dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-                    ea commodo consequat.</p>
+                <p>
+                    The major goal of <strong><a href="https://github.com/vgteam/libbdsg/blob/master/src/hash_graph.cpp">hg</a> - HashGraph</strong> 
+                    is to bring speed to graphs. For more details see the 
+                    <a href="https://github.com/vgteam/handlegraph-paper">handle graph API comparison paper</a>.
+                </p>
             </div>
         </div>
 
@@ -155,7 +155,7 @@
                     <strong><a href="https://github.com/vgteam/odgi">Odgi</a></strong> 
                     <strong>- Optimized Dynamic Graph Implementation</strong> is set of tools for the in-memory
                     manipulation of
-                    <a href="https://github.com/vgteam/vg">variation graphs</a>.
+                    <a href="#vg">variation graphs</a>.
                     Representing large genomic graphs with minimal memory overhead requires a careful encoding of
                     the graph entities.
                     It is possible to build succinct, static data structures to store queryable graphs,
@@ -163,7 +163,7 @@
                     implement.
 
                     <h3>Data structure</h3>
-                    <strong>Odgi</strong> follows the dynamic <a href="https://github.com/jltsiren/gbwt">GWBT</a>
+                    <strong>Odgi</strong> follows the dynamic <a href="#gwbt">GWBT</a>
                     in developing a byte-packed version of the graph and paths through it.
                     Each node is represented by a byte array into which we write variable length integers to
                     represent
@@ -189,22 +189,23 @@
                     only a
                     single byte.
                     The resulting implementation is able to load the whole genome 1000 Genomes Project graph
-                    (described in the publication on vg in Nature Biotechnology) in around 20GB of RAM.
+                    (described in the publication on vg in Nature Biotechnology) in around 20GB of RAM. For even more details see the 
+                    <a href="https://github.com/vgteam/handlegraph-paper">handle graph API comparison paper</a>.
                     Initially, <strong>odgi</strong> has been developed to allow in-memory manipulation of graphs
                     produced
                     by the
-                    <a href="https://github.com/ekg/seqwish">seqwish</a> variation graph inducer.
+                    <a href="#seqwish">seqwish</a> variation graph inducer.
 
                     <h3>Python bindings</h3>
                     In order to ease the development of tools building on top of <strong>odgi</strong>,
                     <a href="https://github.com/vgteam/odgi/blob/master/src/pythonmodule.cpp">Python bindings</a>
                     via <a href="https://github.com/pybind/pybind11">pybind11</a> have been implemented.
-                    Detailed documentation of the bindings are given in <a href="odgi/odgipy.html">odgipy</a>.
+                    Detailed documentation of the bindings are given in <a href="odgi/odgipy.html">odgipy</a>, and usage examples
+                    can be found in a corresponding <a href="https://odgi.readthedocs.io/en/latest/rst/tutorial.html">tutorial</a>.
 
                     <h3>Documentation</h3>
                     The <a href="odgi/odgi_docs.html">odgi docs</a> provide detailed information of syntax and
-                    subcommand
-                    description.
+                    subcommand description.
                 </p>
             </div>
         </div>
