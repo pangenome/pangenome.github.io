@@ -71,181 +71,134 @@
   <!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
 
 
-  <div class="w3-main">
-    <!-- style="margin-left:250px">  -->
-    <div class="w3-third w3-container">
-      <h1>Practical Graphical Pangenomics</h1>
-      <h3>tools and workflows based on genome variation graphs</h3>
-      <p>
-        Standard approaches to genome inference and analysis relate sequences to a single linear reference genome.
-        This is efficient but has a fundamental problem:
-        Differences from this reference are hard to observe and describe in a coherent way.
-        Variation and sequence are separated.
-      </p>
-      <div style="background-color:#ffffff;">
-      <a href="images/genomic-vs-pangenomic-analysis.png"><img src="images/genomic-vs-pangenomic-analysis.png" width="44%"></a>
-      <a href="images/genomic-vs-pangenomic-models.png"><img src="images/genomic-vs-pangenomic-models.png" width="55%"></a>
+    <div class="w3-main">
+      <!-- style="margin-left:250px">  -->
+      <div class="w3-third w3-container">
+        <h1>Practical Graphical Pangenomics</h1>
+        <h3>tools and workflows based on genome variation graphs</h3>
+        <p>
+          Standard approaches to genome inference and analysis relate sequences to a single linear reference genome.
+          This is efficient but has a fundamental problem:
+          Differences from this reference are hard to observe and describe in a coherent way.
+          Variation and sequence are separated.
+        </p>
+        <a href="images/genomic-vs-pangenomic-analysis.png"><img src="images/genomic-vs-pangenomic-analysis.png" width="45%"></a>
+        <a href="images/genomic-vs-pangenomic-models.png"><img src="images/genomic-vs-pangenomic-models.png" width="54%"></a>
+        <p>
+          Pangenomic methods allow us to relate all genomes or sequences in our analysis directly to each other.
+          Sequence and variation are combined into a coherent data structure.
+          This practice is still new, and research into ways to design, implement, and apply this model is ongoing.
+          However, there is a growing consensus around best practices.
+          Many methods work on an augmented sequence graph model and use a handful of common data formats for input and
+          output.
+        </p>
+        <p>
+          The <i>variation graph</i> data model describes the all-to-all alignment of many sequences (genomes or genes for
+          instance) as walks through a graph whose nodes are labeled with DNA sequences:
+        </p>
+        <a href="images/HLA-DRB1-3123-all-viz-caption.png"><img src="images/HLA-DRB1-3123-odgi-viz.png" width="100%"></a>
+        <p>
+          Here, we document tools and workflows that operate on this graphical pangenomic data model.
+          Our goal is to provide greater clarity for students and scientists working with this new paradigm for genomic
+          research.
+        </p>
       </div>
-      <p>
-        Pangenomic methods allow us to relate all genomes or sequences in our analysis directly to each other.
-        Sequence and variation are combined into a coherent data structure.
-        This practice is still new, and research into ways to design, implement, and apply this model is ongoing.
-        However, there is a growing consensus around best practices.
-        Many methods work on an augmented sequence graph model and use a handful of common data formats for input and
-        output.
-      </p>
-      <p>
-        The <i>variation graph</i> data model describes the all-to-all alignment of many sequences (genomes or genes for
-        instance) as walks through a graph whose nodes are labeled with DNA sequences.
-      </p>
-      <a href="images/HLA-DRB1-3123-all-viz-caption.png"><img src="images/HLA-DRB1-3123-odgi-viz.png" width="100%"></a>
-      <p>
-        Here, we document tools and workflows that operate on this graphical pangenomic data model.
-        Our goal is to provide greater clarity for students and scientists working with this new paradigm for genomic
-        research.
-      </p>
-    </div>
 
-    <a name="vg"></a>
-    <div class="w3-third w3-container">
-      <h2>vg</h2>
-      <p>
+      <div class="w3-third w3-container">
+        <a href="https://github.com/vgteam/vg"><h2>vg</h2></a>
         The variation graph toolkit <strong><a href="https://github.com/vgteam/vg">vg</a></strong> provides computational methods for creating and manipulating of genome variation graphs. It's pangenome representation of a set of genomes overcomes reference bias and improves read mapping.
         This is highlighted in the <a href="https://www.nature.com/articles/nbt.4227">Nature Biotechnology publication</a>.
         Users can receive support on <a href="https://www.biostars.org/t/vg/"><strong>vg</strong>'s Biostars page</a>.
-      </p>
-    </div>
+      </div>
 
-    <a name="odgi"></a>
-    <div class="w3-third w3-container">
-      <a href="odgi/index.html"><h2>odgi</h2></a>
-      <p>
-        <a href="odgi/index.html"><strong>odgi</strong></a>, the Optimized Dynamic (genome) Graph Interface, links a thrifty dynamic in-memory variation graph data model to a set of algorithms designed for scalable sorting, pruning, transformation, and visualization of very large genome graphs.
-        <strong>odgi</strong> includes <a href="odgi/odgipy.html">python bindings</a> that can be used to
-        <a href="https://odgi.readthedocs.io/en/latest/rst/tutorial.html">directly interface with its data model.</a>.
-        The <a href="odgi/odgi_docs.html">odgi manual</a> provides detailed information about its features and subcommands, including examples.
-      </p>
-    </div>
-
-    <a name="xg"></a>
-    <div class="w3-third w3-container">
-      <h2>xg</h2>
-      <p>
+      <div class="w3-third w3-container">
+        <a href="https://github.com/vgteam/xg"><h2>xg</h2></a>
         The succinct graph index <strong><a href="https://github.com/vgteam/xg">xg</a></strong> presents a static index of nodes, edges and paths of a variation graph.
         <strong>xg</strong> can be used to annotate graph nodes with their reference path relative positions.
         It was a key component of early development in <strong>vg</strong>, and was use to scale short read mapping to large genomes.
         It implements the <a href="https://github.com/vgteam/libhandlegraph">libhandlegraph</a> API.
-      </p>
-    </div>
+      </div>
 
-    <a name="gwbt"></a>
-    <div class="w3-third w3-container">
-      <h2>GWBT</h2>
-      <p>
+      <div class="w3-third w3-container">
+        <a href="odgi/index.html"><h2>odgi</h2></a>
+        <a href="odgi/index.html"><strong>odgi</strong></a>, the Optimized Dynamic (genome) Graph Interface, links a thrifty dynamic in-memory variation graph data model to a set of algorithms designed for scalable sorting, pruning, transformation, and visualization of very large genome graphs.
+        <strong>odgi</strong> includes <a href="odgi/odgipy.html">python bindings</a> that can be used to
+        <a href="https://odgi.readthedocs.io/en/latest/rst/tutorial.html">directly interface with its data model.</a>.
+        The <a href="odgi/odgi_docs.html">odgi manual</a> provides detailed information about its features and subcommands, including examples.
+      </div>
+
+      <div class="w3-third w3-container">
+        <a href="https://github.com/jltsiren/gbwt"><h2>GWBT</h2></a>
         <strong><a href="https://github.com/jltsiren/gbwt">GWBT</a> -</strong> <strong>Graph BWT</strong>
         is a substring index for paths in a <a href="#vg">variation graph</a>.
         It is based on the positional Burrows-Wheeler transform (PBWT) and independently implements its graph extension (gPBWT).
-        For documentation see the <a href="https://github.com/jltsiren/gbwt/wiki">wiki</a> of <strong>GBWT</strong>.
-      </p>
+        The <strong>GBWT</strong> supports extreme compression of genome sequences, requiring only 1 bit per 1 kilobasepair of sequence to store a  1000 Genomes Project.
+        For documentation see the <a href="https://github.com/jltsiren/gbwt/wiki"><strong>GBWT</strong> wiki</a>.
+      </div>
+
+      <div class="w3-third w3-container">
+        <a href="https://github.com/pangenome/spodgi"><h2>spodgi</h2></a>
+        <strong><a href="https://github.com/pangenome/spodgi">SpOdgi</a></strong> transforms any 
+        <a href="#odgi">odgi</a> genome variation graph file into a SPARQL capable database. 
+        The RDF semantics are described in the <a href="https://github.com/vgteam/vg/tree/master/ontology">vg ontology directory</a>.
+        This transformation allows us to connect variation graphs to other RDF resources, supporting their query using logic programming.
+        Many operations or queries that are implemented in custom code in other pangenome tools can be expressed in compact SPARQL queries executed against <strong>SpOdgi</strong>.
+      </div>
+
+      <div class="w3-third w3-container">
+        <a href="handlegraph/index.html"><h2>HandleGraph</h2></a>
+        Lessons learned when designing algorithms for variation graphs guided the development of the <a href="handlegraph/index.html"><strong>HandleGraph</strong> model</a> and API.
+        It formalizes ways of addressing, traversing, and manipulating the fundamental units of variation graphs.
+        Implemented in <a href="https://github.com/vgteam/libhandlegraph"><strong>libhandlegraph</strong></a>, this C++ API hierarchy defines a set of capabilities from the simplest: <a href="https://github.com/vgteam/libhandlegraph/blob/master/src/include/handlegraph/handle_graph.hpp">a static bidirected DNA sequence graph</a>, to the most complex: <a href="https://github.com/vgteam/libhandlegraph/blob/master/src/include/handlegraph/mutable_path_deletable_handle_graph.hpp">dynamic graphs with modifiable paths</a>, and covers a number of important capabilities including serialization and positional indexing.
+      </div>
+
+      <div class="w3-third w3-container">
+        <a href="https://github.com/vgteam/libbdsg"><h2>libbdsg</h2></a>
+        <a href="https://github.com/vgteam/libbdsg"><strong>libbdsg</strong></a> brings together a collection of dynamic <a href="https://github.com/vgteam/libhandlegraph"><strong>HandleGraph</strong></a> implementations.
+        <strong><a href="https://github.com/vgteam/libbdsg/blob/master/src/packed_graph.cpp">PackedGraph</a></strong> is designed to have a very low memory footprint.
+        <strong><a href="https://github.com/vgteam/libbdsg/blob/master/src/hash_graph.cpp">HashGraph</a></strong> is implemented using a collection high-performance hash tables with the goal of providing the highest-possible runtime performance at the cost of increased memory usage.
+        <!-- The library also wraps a copy of the <strong><a href="https://github.com/vgteam/libbdsg/blob/master/src/odgi.cpp">odgi</a></strong> graph model. -->
+        For more details see the <a href="https://github.com/vgteam/handlegraph-paper">handle graph API comparison paper</a>.
+      </div>
+
+      <div class="w3-third w3-container">
+        <a href="https://github.com/ekg/seqwish"><h2>seqwish</h2></a>
+        The alignment to variation graph inducer <a href="https://github.com/ekg/seqwish"><strong>seqwish</strong></a> renders a set of sequences and alignments into the equivalent variation graph.
+        It accomplishes this using a number of tricks to reduce its memory footprint while maintaining a high degree of parallelism.
+        The result is entirely dependent on the input alignments, which it represents losslessly.
+        <strong>seqwish</strong> is generic: it can induce variation graphs from a collection of human genomes, or a set of noisy nanopore reads.
+      </div>
+
+      <div class="w3-third w3-container">
+        <a href="https://github.com/vgteam/sequenceTubeMap"><h2>Sequence Tube Map</h2></a>
+        <strong><a href="https://github.com/vgteam/sequenceTubeMap">Sequence Tube Map</a></strong> is a javascript module visualizing variation graphs in a <i>tube-map-like</i> layout.
+        It renders variation graphs using a "tube map" model in which paths representing genomes flow through the sequence nodes of the graph.
+        Currently, it can only handle graphs created with <a href="#vg">vg</a>.
+      </div>
+
+      <div class="w3-third w3-container">
+        <a href="https://graph-genome.github.io/"><h2>Pantograph</h2></a>
+        The <strong><a href="https://graph-genome.github.io/">Pantograph</a></strong> project 
+        aims to build an interactive pangenome visualization tool for COVID-19 data that includes annotation and metadata. 
+        On the long run, it should be capable to visualize a pangenome of 1,000s of individuals and gigabase genomes,
+        scaling from nucleotide to whole chromosome level.
+      </div>
+
+      <div class="w3-third w3-container">
+        <a href="https://github.com/rrwick/Bandage"><h2>Bandage</h2></a>
+        Originally developed for assembly graph visualization, <strong><a href="https://github.com/rrwick/Bandage">Bandage</a></strong> is an indispensable tool for visual inspection of variation graphs as well as assembly graphs.
+      </div>
+
+      <!--
+          <div class="w3-third w3-container">
+            <p class="w3-border w3-padding-large w3-padding-32 w3-center">AD</p>
+            <p class="w3-border w3-padding-large w3-padding-64 w3-center">AD</p>
+          </div>
+          -->
+
+
+          <!-- END MAIN -->
     </div>
-
-    <a name="pg"></a>
-    <div class="w3-third w3-container">
-      <h2>pg</h2>
-      <p>
-        <strong><a href="https://github.com/vgteam/libbdsg/blob/master/src/packed_graph.cpp">Pg</a> -
-          PackedGraph</strong>
-        is implemented having a very low memory footprint in mind. For more details see the
-        <a href="https://github.com/vgteam/handlegraph-paper">handle graph API comparison paper</a>.
-      </p>
-    </div>
-  </div>
-
-  <a name="hg"></a>
-  <div class="w3-third w3-container">
-    <h2>hg</h2>
-    <p>
-      The major goal of <strong><a href="https://github.com/vgteam/libbdsg/blob/master/src/hash_graph.cpp">hg</a> -
-        HashGraph</strong>
-      is to bring speed to graphs. For more details see the
-      <a href="https://github.com/vgteam/handlegraph-paper">handle graph API comparison paper</a>.
-    </p>
-  </div>
-
-  <a name="spodgi"></a>
-  <div class="w3-third w3-container">
-    <h2>spodgi</h2>
-    <p>
-      <strong><a href="https://github.com/pangenome/spodgi">SpOdgi</a></strong> transforms any 
-      <a href="#odgi">odgi</a> genome variation graph file into a SPARQL capable database. 
-      The RDF semantics are described in the <a href="https://github.com/vgteam/vg/tree/master/ontology">vg ontology directory</a>.
-    </p>
-  </div>
-
-  <a name="libhandlegraph"></a>
-  <div class="w3-third w3-container">
-    <a href="handlegraph/index.html"><h2>HandleGraph</h2></a>
-    <p>
-      Lessons learned when designing algorithms for variation graphs guided the development of the <strong>HandleGraph</strong> data model and API.
-      <a href="handlegraph/index.html">The <strong>HandleGraph</strong> model</a> formalizes ways of addressing, traversing, and manipulating the fundamental units of variation graphs.
-      Implemented in <a href="handlegraph/index.html"><strong>libhandlegraph</strong></a>, this C++ API hierarchy defines a set of capabilities from the simplest: <a href="https://github.com/vgteam/libhandlegraph/blob/master/src/include/handlegraph/handle_graph.hpp">a static bidirected DNA sequence graph</a>, to the most complex: <a href="https://github.com/vgteam/libhandlegraph/blob/master/src/include/handlegraph/mutable_path_deletable_handle_graph.hpp">fully dynamic graphs with embedded, modifiable paths</a>, and covers a number of important capabilities including serialization and positional indexing.
-    </p>
-  </div>
-
-  <a name="libbdsg"></a>
-  <div class="w3-third w3-container">
-    <h2>libbdsg</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-      et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-      aliquip ex ea commodo consequat. Lorem ipsum
-      dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-      magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat.</p>
-  </div>
-
-  <a name="seqwish"></a>
-  <div class="w3-third w3-container">
-    <h2>seqwish</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-      et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-      aliquip ex ea commodo consequat. Lorem ipsum
-      dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-      magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat.</p>
-  </div>
-
-  <a name="stm"></a>
-  <div class="w3-third w3-container">
-    <h2>Sequence Tube Map</h2>
-    <p>
-      <strong><a href="https://github.com/vgteam/sequenceTubeMap">Sequence Tube Map</a></strong>
-      is a javascript module visualizing variation graphs in a <i>tube-map-like</i> layout. Currently, it 
-      can only handly graphs created with <a href="#vg">vg</a>.
-    </p>
-  </div>
-
-  <a name="pantograph"></a>
-  <div class="w3-third w3-container">
-    <h2>Pantograph</h2>
-    <p>
-      The <strong><a href="https://graph-genome.github.io/">Pantograph</a></strong> project 
-      aims to build an interactive pangenome visualization tool for COVID-19 data that includes annotation and metadata. 
-      On the long run, it should be capable to visualize a pangenome of 1,000s of individuals and gigabase genomes,
-      scaling from nucleotide to whole chromosome level.
-    </p>
-  </div>
-
-
-  <!--
-            <div class="w3-third w3-container">
-                <p class="w3-border w3-padding-large w3-padding-32 w3-center">AD</p>
-                <p class="w3-border w3-padding-large w3-padding-64 w3-center">AD</p>
-            </div>
-            -->
-
-
-  <!-- END MAIN -->
-  </div>
 
 </body>
 
