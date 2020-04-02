@@ -170,10 +170,19 @@
       </div>
 
       <div class="w3-third w3-container">
+        <a href="https://github.com/lh3/minigraph"><h2>minigraph</h2></a>
+        A <i>proof-of-concept</i> sequence-to-graph mapper and graph generator is <strong><a href="https://github.com/lh3/minigraph">minigraph</a></strong>. 
+        The pangenome graph is build in incremental <a href="https://github.com/lh3/minimap2">minimap</a> steps. Approximate mappings are found through chaining of local hits.
+        Current <a href="https://github.com/lh3/minigraph#limitations">limitations</a> do not allow the algorithm to map short segments or to perform on a base-level resultion.
+        This compromise leads to the construction of an accurate pangenome graph, but may leave out complex events.
+      </div>
+
+      <div class="w3-third w3-container">
         <a href="https://github.com/vgteam/sequenceTubeMap"><h2>Sequence Tube Map</h2></a>
         <strong><a href="https://github.com/vgteam/sequenceTubeMap">Sequence Tube Map</a></strong> is a javascript module visualizing variation graphs in a <i>tube-map-like</i> layout.
         It renders variation graphs using a "tube map" model in which paths representing genomes flow through the sequence nodes of the graph.
         Currently, it can only handle graphs created with <a href="#vg">vg</a>.
+        <a href="images/sequence-tube-map-example.png"><img src="images/sequence-tube-map-example.png" width="100%"></a>
       </div>
 
       <div class="w3-third w3-container">
@@ -187,6 +196,23 @@
       <div class="w3-third w3-container">
         <a href="https://rrwick.github.io/Bandage"><h2>Bandage</h2></a>
         Originally developed for assembly graph visualization, <strong><a href="https://rrwick.github.io/Bandage">Bandage</a></strong> is an indispensable tool for visual inspection of variation graphs as well as assembly graphs.
+      </div>
+
+      <div class="w3-third w3-container">
+        <a href="https://github.com/MoMI-G/MoMI-G/"><h2>MoMI-G</h2></a>
+        <strong><a href="https://github.com/MoMI-G/MoMI-G/">MoMI-G</a> - MOdular Multi-scale Integrated Genome graph browser</strong> is a <i>mult-view</i> 
+        graph browser combining the base-level differences of <a href="https://github.com/vgteam/sequenceTubeMap">Sequence Tube Map</a> 
+        with a <a href="http://circos.ca/">CIRCOS</a> plot of chromosomal-scale connections and an interval card deck to efficiently browse structural variants. 
+        It displays evidences such as short and long read alignments, read depth, and annotations.
+      </div>
+
+      <div class="w3-third w3-container">
+        <a href="https://github.com/GFA-spec/GFA-spec"><h2>Pangenomic data formats</h2></a>
+        Graphical pangenomes are usually exchanged with the <strong><a href="https://github.com/GFA-spec/GFA-spec/blob/master/GFA1.md">GFA1</a> - Graphical Fragment Assembly</strong> 
+        format. Reference pangenome graphs are described in <strong><a href="https://github.com/lh3/gfatools/blob/master/doc/rGFA.md#the-reference-gfa-rgfa-format">rGFA</a></strong>, a specialization of GFA1. 
+        Mappings to <strong>rGFA</strong> are encoded in the <strong><a href="https://github.com/lh3/gfatools/blob/master/doc/rGFA.md#the-graph-alignment-format-gaf">GAF</a> - Graph Alignment Format</strong>.
+        <a href="https://github.com/vgteam/vg">vg</a>'s BAM equivalent,
+        <strong><a href="https://github.com/vgteam/vg/wiki/File-Formats#gam-graph-alignment--map-vgs-bam">GAM</a> - Graphical Alignment / Map</strong>, represents reads aligned to a pangenome graph.
       </div>
 
       <!--
