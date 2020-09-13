@@ -19,6 +19,10 @@
     font-family: "Roboto", sans-serif;
   }
 
+  h1, h3 {
+    text-align: center;
+  }
+
   .w3-sidebar {
     z-index: 3;
     width: 250px;
@@ -73,9 +77,10 @@
 
     <div class="w3-main">
       <!-- style="margin-left:250px">  -->
+      <h1>Practical Graphical Pangenomics</h1>
+      <h3>tools and workflows based on genome variation graphs</h3>
       <div class="w3-third w3-container">
-        <h1>Practical Graphical Pangenomics</h1>
-        <h3>tools and workflows based on genome variation graphs</h3>
+        <a href="https://doi.org/10.1146/annurev-genom-120219-080406"><h2>Pangenomic methods</h2></a>
         <p>
           Standard approaches to genome inference and analysis relate sequences to a single linear reference genome.
           This is efficient but has a fundamental problem:
@@ -191,7 +196,7 @@
       <!--
       <div class="w3-third w3-container">
         <a href="https://github.com/lh3/minigraph"><h2>minigraph</h2></a>
-        A <i>proof-of-concept</i> sequence-to-graph mapper and graph generator is <strong><a href="https://github.com/lh3/minigraph">minigraph</a></strong>. 
+        A <i>proof-of-concept</i> sequence-to-graph mapper and graph generator is <strong><a href="https://github.com/lh3/minigraph">minigraph</a></strong>.
         The pangenome graph is build in incremental <a href="https://github.com/lh3/minimap2">minimap</a> steps. Approximate mappings are found through chaining of local hits.
         Current <a href="https://github.com/lh3/minigraph#limitations">limitations</a> do not allow the algorithm to map short segments or to perform on a base-level resultion.
         This compromise leads to the construction of an accurate pangenome graph, but may leave out complex events.
@@ -220,9 +225,9 @@
 
       <div class="w3-third w3-container">
         <a href="https://github.com/MoMI-G/MoMI-G/"><h2>MoMI-G</h2></a>
-        <strong><a href="https://github.com/MoMI-G/MoMI-G/">MoMI-G</a> - MOdular Multi-scale Integrated Genome graph browser</strong> is a <i>mult-view</i> 
-        graph browser combining the base-level differences of <a href="https://github.com/vgteam/sequenceTubeMap">Sequence Tube Map</a> 
-        with a <a href="http://circos.ca/">CIRCOS</a> plot of chromosomal-scale connections and an interval card deck to efficiently browse structural variants. 
+        <strong><a href="https://github.com/MoMI-G/MoMI-G/">MoMI-G</a> - MOdular Multi-scale Integrated Genome graph browser</strong> is a <i>mult-view</i>
+        graph browser combining the base-level differences of <a href="https://github.com/vgteam/sequenceTubeMap">Sequence Tube Map</a>
+        with a <a href="http://circos.ca/">CIRCOS</a> plot of chromosomal-scale connections and an interval card deck to efficiently browse structural variants.
         It displays evidences such as short and long read alignments, read depth, and annotations.
       </div>
 
