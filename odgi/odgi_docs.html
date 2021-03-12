@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.10">
-<meta name="author" content="Simon Heumos, Erik Garrison">
-<title>Reference Documentation for ODGI v0.4.1</title>
+<meta name="generator" content="Asciidoctor 2.0.12">
+<meta name="author" content="Simon Heumos, Andrea Guarracino, Erik Garrison">
+<title>Reference Documentation for ODGI v0.6.0</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -48,7 +48,7 @@ textarea{overflow:auto;vertical-align:top}
 table{border-collapse:collapse;border-spacing:0}
 *,*::before,*::after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
 html,body{font-size:100%}
-body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;word-wrap:anywhere;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
 a:hover{cursor:pointer}
 img,object,embed{max-width:100%;height:auto}
 object,embed{height:100%}
@@ -63,10 +63,8 @@ img{-ms-interpolation-mode:bicubic}
 img,object,svg{display:inline-block;vertical-align:middle}
 textarea{height:auto;min-height:50px}
 select{width:100%}
-.center{margin-left:auto;margin-right:auto}
-.stretch{width:100%}
 .subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
-div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0;direction:ltr}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0}
 a{color:#2156a5;text-decoration:underline;line-height:inherit}
 a:hover,a:focus{color:#1d4b8f}
 a img{border:0}
@@ -106,19 +104,22 @@ h1{font-size:2.75em}
 h2{font-size:2.3125em}
 h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
 h4{font-size:1.4375em}}
-table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede}
+table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede;word-wrap:normal}
 table thead,table tfoot{background:#f7f8f7}
 table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
 table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
 table tr.even,table tr.alt{background:#f8f8f7}
-table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{display:table-cell;line-height:1.6}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{line-height:1.6}
 h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
 h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
+.center{margin-left:auto;margin-right:auto}
+.stretch{width:100%}
 .clearfix::before,.clearfix::after,.float-group::before,.float-group::after{content:" ";display:table}
 .clearfix::after,.float-group::after{clear:both}
-:not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed;word-wrap:break-word}
-:not(pre)>code.nobreak{word-wrap:normal}
-:not(pre)>code.nowrap{white-space:nowrap}
+:not(pre).nobreak{word-wrap:normal}
+:not(pre).nowrap{white-space:nowrap}
+:not(pre).pre-wrap{white-space:pre-wrap}
+:not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed}
 pre{color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;line-height:1.45;text-rendering:optimizeSpeed}
 pre code,pre pre{color:inherit;font-size:inherit;line-height:inherit}
 pre>code{display:block}
@@ -183,7 +184,7 @@ body.toc2.toc-right{padding-left:0;padding-right:20em}}
 #content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
 #content #toc>:first-child{margin-top:0}
 #content #toc>:last-child{margin-bottom:0}
-#footer{max-width:100%;background:rgba(0,0,0,.8);padding:1.25em}
+#footer{max-width:none;background:rgba(0,0,0,.8);padding:1.25em}
 #footer-text{color:rgba(255,255,255,.8);line-height:1.44}
 #content{margin-bottom:.625em}
 .sect1{padding-bottom:.625em}
@@ -206,7 +207,7 @@ table.tableblock #preamble>.sectionbody>[class="paragraph"]:first-of-type p{font
 .admonitionblock>table td.icon{text-align:center;width:80px}
 .admonitionblock>table td.icon img{max-width:none}
 .admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
-.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6)}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6);word-wrap:anywhere}
 .admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
 .exampleblock>.content{border-style:solid;border-width:1px;border-color:#e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;-webkit-border-radius:4px;border-radius:4px}
 .exampleblock>.content>:first-child{margin-top:0}
@@ -216,7 +217,7 @@ table.tableblock #preamble>.sectionbody>[class="paragraph"]:first-of-type p{font
 .sidebarblock>:last-child{margin-bottom:0}
 .sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
 .exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
-.literalblock pre,.listingblock>.content>pre{-webkit-border-radius:4px;border-radius:4px;word-wrap:break-word;overflow-x:auto;padding:1em;font-size:.8125em}
+.literalblock pre,.listingblock>.content>pre{-webkit-border-radius:4px;border-radius:4px;overflow-x:auto;padding:1em;font-size:.8125em}
 @media screen and (min-width:768px){.literalblock pre,.listingblock>.content>pre{font-size:.90625em}}
 @media screen and (min-width:1280px){.literalblock pre,.listingblock>.content>pre{font-size:1em}}
 .literalblock pre,.listingblock>.content>pre:not(.highlight),.listingblock>.content>pre[class="highlight"],.listingblock>.content>pre[class^="highlight "]{background:#f7f7f8}
@@ -262,21 +263,20 @@ pre.pygments .lineno::before{content:"";margin-right:-.125em}
 .quoteblock.excerpt,.quoteblock .quoteblock{margin-left:0}
 .quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{color:inherit;font-size:1.0625rem}
 .quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;text-align:left;margin-right:0}
-table.tableblock{max-width:100%;border-collapse:separate}
 p.tableblock:last-child{margin-bottom:0}
+td.tableblock>.content{margin-bottom:1.25em;word-wrap:anywhere}
 td.tableblock>.content>:last-child{margin-bottom:-1.25em}
-td.tableblock>.content>:last-child.sidebarblock{margin-bottom:0}
 table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
-table.grid-all>thead>tr>.tableblock,table.grid-all>tbody>tr>.tableblock{border-width:0 1px 1px 0}
-table.grid-all>tfoot>tr>.tableblock{border-width:1px 1px 0 0}
-table.grid-cols>*>tr>.tableblock{border-width:0 1px 0 0}
-table.grid-rows>thead>tr>.tableblock,table.grid-rows>tbody>tr>.tableblock{border-width:0 0 1px}
-table.grid-rows>tfoot>tr>.tableblock{border-width:1px 0 0}
-table.grid-all>*>tr>.tableblock:last-child,table.grid-cols>*>tr>.tableblock:last-child{border-right-width:0}
-table.grid-all>tbody>tr:last-child>.tableblock,table.grid-all>thead:last-child>tr>.tableblock,table.grid-rows>tbody>tr:last-child>.tableblock,table.grid-rows>thead:last-child>tr>.tableblock{border-bottom-width:0}
+table.grid-all>*>tr>*{border-width:1px}
+table.grid-cols>*>tr>*{border-width:0 1px}
+table.grid-rows>*>tr>*{border-width:1px 0}
 table.frame-all{border-width:1px}
+table.frame-ends{border-width:1px 0}
 table.frame-sides{border-width:0 1px}
-table.frame-topbot,table.frame-ends{border-width:1px 0}
+table.frame-none>colgroup+*>:first-child>*,table.frame-sides>colgroup+*>:first-child>*{border-top-width:0}
+table.frame-none>:last-child>:last-child>*,table.frame-sides>:last-child>:last-child>*{border-bottom-width:0}
+table.frame-none>*>tr>:first-child,table.frame-ends>*>tr>:first-child{border-left-width:0}
+table.frame-none>*>tr>:last-child,table.frame-ends>*>tr>:last-child{border-right-width:0}
 table.stripes-all tr,table.stripes-odd tr:nth-of-type(odd),table.stripes-even tr:nth-of-type(even),table.stripes-hover tr:hover{background:#f8f8f7}
 th.halign-left,td.halign-left{text-align:left}
 th.halign-right,td.halign-right{text-align:right}
@@ -285,7 +285,7 @@ th.valign-top,td.valign-top{vertical-align:top}
 th.valign-bottom,td.valign-bottom{vertical-align:bottom}
 th.valign-middle,td.valign-middle{vertical-align:middle}
 table thead th,table tfoot th{font-weight:bold}
-tbody tr th{display:table-cell;line-height:1.6;background:#f7f8f7}
+tbody tr th{background:#f7f8f7}
 tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
 p.tableblock>code:only-child{background:none;padding:0}
 p.tableblock{font-size:1em}
@@ -314,6 +314,7 @@ ol.lowergreek{list-style-type:lower-greek}
 .hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
 td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
 td.hdlist1{font-weight:bold;padding-bottom:1.25em}
+td.hdlist2{word-wrap:anywhere}
 .literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
 .colist td:not([class]):first-child{padding:.4em .75em 0;line-height:1;vertical-align:top}
 .colist td:not([class]):first-child img{max-width:none}
@@ -386,7 +387,7 @@ a span.icon>.fa{cursor:inherit}
 .admonitionblock td.icon .icon-warning::before{content:"\f071";color:#bf6900}
 .admonitionblock td.icon .icon-caution::before{content:"\f06d";color:#bf3400}
 .admonitionblock td.icon .icon-important::before{content:"\f06a";color:#bf0000}
-.conum[data-value]{display:inline-block;color:#fff!important;background:rgba(0,0,0,.8);-webkit-border-radius:100px;border-radius:100px;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value]{display:inline-block;color:#fff!important;background:rgba(0,0,0,.8);-webkit-border-radius:50%;border-radius:50%;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
 .conum[data-value] *{color:#fff!important}
 .conum[data-value]+b{display:none}
 .conum[data-value]::after{content:attr(data-value)}
@@ -413,6 +414,7 @@ thead{display:table-header-group}
 svg{max-width:100%}
 p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
 h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+#header,#content,#footnotes,#footer{max-width:none}
 #toc,.sidebarblock,.exampleblock>.content{background:none!important}
 #toc{border-bottom:1px solid #dddddf!important;padding-bottom:0!important}
 body.book #header{text-align:center}
@@ -439,9 +441,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>Reference Documentation for ODGI v0.4.1</h1>
+<h1>Reference Documentation for ODGI v0.6.0</h1>
 <div class="details">
-<span id="author" class="author">Simon Heumos, Erik Garrison</span><br>
+<span id="author" class="author">Simon Heumos, Andrea Guarracino, Erik Garrison</span><br>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -492,6 +494,18 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p><strong>odgi</strong> <a href="#_odgi_stats1">stats</a> -i graph.og -S</p>
 </div>
 <div class="paragraph">
+<p><strong>odgi</strong> <a href="odgi_cover.html#_odgi_cover1">cover</a> -i graph.og -o graph.paths.og</p>
+</div>
+<div class="paragraph">
+<p><strong>odgi</strong> <a href="odgi_cover.html#_odgi_explode1">explode</a> -i graph.og -p prefix</p>
+</div>
+<div class="paragraph">
+<p><strong>odgi</strong> <a href="odgi_cover.html#_odgi_squeeze1">squeeze</a> -f input_graphs.txt -o graphs.og</p>
+</div>
+<div class="paragraph">
+<p><strong>odgi</strong> <a href="#_odgi_position1">position</a> -i target_graph.og -g</p>
+</div>
+<div class="paragraph">
 <p><strong>odgi</strong> <a href="#_odgi_sort1">sort</a> -i graph.og -o graph.sorted.og -p bSnSnS</p>
 </div>
 <div class="paragraph">
@@ -529,6 +543,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div class="paragraph">
 <p><strong>odgi</strong> <a href="#_odgi_chop1">chop</a> -i graph.og -o graph.choped.og -c 1000</p>
+</div>
+<div class="paragraph">
+<p><strong>odgi</strong> <a href="odgi_groom.html#_odgi_groom1">groom</a> -i graph.og -o graph.groomed.og</p>
 </div>
 <div class="paragraph">
 <p><strong>odgi</strong> <a href="#_odgi_layout1">layout</a> -i graph.og -o graph.svg -R 10 -m 100</p>
@@ -575,6 +592,22 @@ The odgi build(1) command constructs a succinct variation graph from a GFA. Curr
 <div class="paragraph">
 <p><strong>odgi stats</strong> [<strong>-i, --idx</strong>=<em>FILE</em>] [<em>OPTION</em>]&#8230;&#8203;<br>
 The odgi stats(1) command produces statistics of a variation graph. Among other metrics, it can calculate the #nodes, #edges, #paths and the total nucleotide length of the graph. Various histogram summary options complement the tool. If [<strong>-B, --bed-multicov</strong>=<em>BED</em>] is set, the metrics will be produced for the intervals specified in the BED.</p>
+</div>
+<div class="paragraph">
+<p><strong>odgi cover</strong> [<strong>-i, --idx</strong>=<em>FILE</em>] [<strong>-o, --out</strong>=<em>FILE</em>] [<em>OPTION</em>]&#8230;&#8203;<br>
+The odgi cover(1) command find a path cover of a variation graph, with a specified number of paths per component.</p>
+</div>
+<div class="paragraph">
+<p><strong>odgi explode</strong> [<strong>-i, --idx</strong>=<em>FILE</em>] [<strong>-p, --prefix</strong>=<em>STRING</em>] [<em>OPTION</em>]&#8230;&#8203;<br>
+The odgi explode(1) command breaks a graph into connected components, writing each component in its own file.</p>
+</div>
+<div class="paragraph">
+<p><strong>odgi squeeze</strong> [<strong>-f, --input-graphs</strong>=<em>FILE</em>] [<strong>-o, --out</strong>=<em>FILE</em>] [<em>OPTION</em>]&#8230;&#8203;
+The odgi squeeze(1) command squeezes multiple graphs into the same file.</p>
+</div>
+<div class="paragraph">
+<p><strong>odgi position</strong> [<strong>-i, --target</strong>=<em>FILE</em>] [<em>OPTION</em>]&#8230;&#8203;
+The odgi position(1) command position parts of the graph as defined by query criteria.</p>
 </div>
 <div class="paragraph">
 <p><strong>odgi sort</strong> [<strong>-i, --idx</strong>=<em>FILE</em>] [<strong>-o, --out</strong>=<em>FILE</em>] [<em>OPTION</em>]&#8230;&#8203;<br>
@@ -736,7 +769,7 @@ The odgi version(1) command prints the current git version with tags and codenam
 <div class="sect2">
 <h3 id="_authors">1.6. AUTHORS</h3>
 <div class="paragraph">
-<p>Erik Garrison from the University of California Santa Cruz wrote the whole <strong>odgi</strong> tool. Despite small code contributions, Simon Heumos from the Quantitative Biology Center Tübingen wrote <strong>odgi pathindex</strong>, <strong>odgi panpos</strong>, <strong>odgi server</strong>, and the documentation.</p>
+<p>Erik Garrison from the University of California Santa Cruz wrote the whole <strong>odgi</strong> tool. Simon Heumos from the Quantitative Biology Center Tübingen wrote <strong>odgi pathindex</strong>, <strong>odgi panpos</strong>, <strong>odgi server</strong>, and this documentation. Andrea Guarracino from the University of Rome Tor Vergata wrote <strong>odgi viz</strong>, <strong>odgi cover</strong>, <strong>odgi explode</strong>, <strong>odgi squeeze</strong>, and this documentation*.</p>
 </div>
 </div>
 <div class="sect2">
@@ -858,9 +891,9 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
 <dd>
 <p>Turn on script warnings (applies to executed code).</p>
 </dd>
-<dt class="hdlist1"><strong>-t, --timings</strong></dt>
+<dt class="hdlist1"><strong>-t, --threads</strong>=<em>N</em></dt>
 <dd>
-<p>Print timings report to stderr (time to read, parse, and convert).</p>
+<p>Number of threads to use for the parallel operations.</p>
 </dd>
 </dl>
 </div>
@@ -948,6 +981,10 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
 <dd>
 <p>Summarize the graph properties and dimensions. Print to stdout the #nucleotides, #nodes, #edges and #paths of the graph.</p>
 </dd>
+<dt class="hdlist1"><strong>-W, --weak-connected-components</strong></dt>
+<dd>
+<p>Shows the properties of the weakly connected components.</p>
+</dd>
 <dt class="hdlist1"><strong>-b, --base-content</strong></dt>
 <dd>
 <p>Describe the base content of the graph. Print to stdout the #A, #C, #G and #T of the graph.</p>
@@ -979,7 +1016,38 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_threading">3.4.4. Threading</h4>
+<h4 id="_sorting_goodness_evaluation">3.4.4. Sorting goodness evaluation</h4>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>-l, --mean-links-length</strong></dt>
+<dd>
+<p>Calculate the mean links length. This metric is path-guided and computable in 1D and 2D.</p>
+</dd>
+<dt class="hdlist1"><strong>-g, --no-gap-links</strong></dt>
+<dd>
+<p>Don&#8217;t penalize gap links in the mean links length. A gap link is a link which connects two nodes that are consecutive in the linear pangenomic order. This option is specifiable only to compute the mean links length in 1D.</p>
+</dd>
+<dt class="hdlist1"><strong>-s, --sum-path-nodes-distances</strong></dt>
+<dd>
+<p>Calculate the sum of path nodes distances. This metric is path-guided and computable in 1D and 2D. For each path, it iterates from node to node, summing their distances, and normalizing by the path length. In 1D, if a link goes back in the linearized viewpoint of the graph, this is penalized (adding 3 times its length in the sum).</p>
+</dd>
+<dt class="hdlist1"><strong>-d, --penalize-different-orientation</strong></dt>
+<dd>
+<p>If a link connects two nodes which have different orientations, this is penalized (adding 2 times its length in the sum).</p>
+</dd>
+<dt class="hdlist1"><strong>-c, --coords-in</strong></dt>
+<dd>
+<p>File containing the layout coordinates of the succinct variation graph specified as input. The file name usually ends with <em>.lay</em>. When the layout coordinates are provided, the mean links length and the sum path nodes distances statistics are evaluated in 2D, else in 1D.</p>
+</dd>
+<dt class="hdlist1"><strong>-P, --path-statistics</strong></dt>
+<dd>
+<p>Display the statistics (mean links length or sum path nodes distances) for each path.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_threading">3.4.5. Threading</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><strong>-t, --threads</strong>=<em>N</em></dt>
@@ -990,7 +1058,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_program_information_2">3.4.5. Program Information</h4>
+<h4 id="_program_information_2">3.4.6. Program Information</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><strong>-h, --help</strong></dt>
@@ -1063,15 +1131,15 @@ a cycle is found. We break and start a new DFS sort phase from where we stopped.
 <p>A random sort: The graph is randomly sorted. The node order is randomly shuffled from <a href="http://www.cplusplus.com/reference/random/mt19937/">Mersenne Twister pseudo-random</a> generated numbers.</p>
 </li>
 <li>
-<p>A sparse matrix mondriaan sort: We can partition a hypergraph with integer weights and uniform hyperedge costs using the <a href="http://www.staff.science.uu.nl/~bisse101/Mondriaan/">Mondriaan</a> partitioner.</p>
-</li>
-<li>
 <p>A 1D linear SGD sort: Odgi implements a 1D linear, variation graph adjusted, multi-threaded version of the <a href="https://arxiv.org/abs/1710.04626">Graph Drawing
 by Stochastic Gradient Descent</a> algorithm. The force-directed graph drawing algorithm minimizes the graph&#8217;s energy function
 or stress level. It applies stochastic gradient descent (SGD) to move a single pair of nodes at a time.</p>
 </li>
 <li>
-<p>An eades algorithmic sort: Use <a href="http://www.it.usyd.edu.au/~pead6616/old_spring_paper.pdf">Peter Eades' heuristic for graph drawing</a>.</p>
+<p>A path guided, 1D linear SGD sort: Odgi implements a 1D linear, variation graph adjusted, multi-threaded version of the <a href="https://arxiv.org/abs/1710.04626">Graph Drawing
+ by Stochastic Gradient Descent</a> algorithm. The force-directed graph drawing algorithm minimizes the graph&#8217;s energy function
+ or stress level. It applies stochastic gradient descent (SGD) to move a single pair of nodes at a time. The path index is used to pick the terms to move stochastically. If ran with 1 thread only,
+the resulting order of the graph is deterministic. The seed is adjustable.</p>
 </li>
 </ul>
 </div>
@@ -1148,76 +1216,83 @@ pipeline of sorts within one parameter.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_mondriaan_sort">4.4.4. Mondriaan Sort</h4>
+<h4 id="_path_guided_1d_linear_sgd_sort">4.4.4. Path Guided 1D Linear SGD Sort</h4>
 <div class="dlist">
 <dl>
-<dt class="hdlist1"><strong>-m, --mondriaan</strong></dt>
+<dt class="hdlist1"><strong>-Y, --path-sgd</strong></dt>
 <dd>
-<p>Use the sparse matrix diagonalization to sort the graph.</p>
+<p>Apply path guided 1D linear SGD algorithm to organize the graph.</p>
 </dd>
-<dt class="hdlist1"><strong>-N, --mondriaan-n-parts</strong>=<em>N</em></dt>
+<dt class="hdlist1"><strong>-X, --path-index</strong>=<em>FILE</em></dt>
 <dd>
-<p>Number of partitions for the mondriaan sort.</p>
+<p>Load the path index from this <em>FILE</em>.</p>
 </dd>
-<dt class="hdlist1"><strong>-E, --mondriaan-epsilon</strong>=<em>N</em></dt>
+<dt class="hdlist1"><strong>-f, --path-sgd-use-paths</strong>=FILE</dt>
 <dd>
-<p>Set the epsilon parameter for the mondriaan sort.</p>
+<p>Specify a line separated list of paths to sample from for the on the fly term generation process in the path guided linear 1D SGD. The default value are <em>all paths</em>.</p>
 </dd>
-<dt class="hdlist1"><strong>-W, --mondriaan-path-weight</strong></dt>
+<dt class="hdlist1"><strong>-G, --path-sgd-min-term-updates-paths</strong>=<em>N</em></dt>
 <dd>
-<p>Weight the mondriaan input matrix by the path coverage of edges.</p>
+<p>The minimum number of terms to be updated before a new path guided linear 1D SGD iteration with adjusted learning rate eta starts, expressed as a multiple of total path steps. The default value is <em>1.0</em>. Can be overwritten by <em>-U, -path-sgd-min-term-updates-nodes=N</em>.</p>
+</dd>
+<dt class="hdlist1"><strong>-U, --path-sgd-min-term-updates-nodes</strong>=<em>N</em></dt>
+<dd>
+<p>The minimum number of terms to be updated before a new path guided linear 1D SGD iteration with adjusted learning rate eta starts, expressed as a multiple of the number of nodes. Per default, the argument is not set. The default of <em>-G, path-sgd-min-term-updates-paths=N</em> is used).</p>
+</dd>
+<dt class="hdlist1"><strong>-j, --path-sgd-delta</strong>=<em>N</em></dt>
+<dd>
+<p>The threshold of maximum displacement approximately in bp at which to stop path guided linear 1D SGD. Default values is <em>0.0</em>.</p>
+</dd>
+<dt class="hdlist1"><strong>-g, --path-sgd-eps</strong>=<em>N</em></dt>
+<dd>
+<p>The final learning rate for path guided linear 1D SGD model. The default value is <em>0.01</em>.</p>
+</dd>
+<dt class="hdlist1"><strong>-v, --path-sgd-eta-max</strong>=<em>N</em></dt>
+<dd>
+<p>The first and maximum learning rate for path guided linear 1D SGD model. The default value is <em>squared steps of longest path in graph</em>.</p>
+</dd>
+<dt class="hdlist1"><strong>-a, --path-sgd-zipf-theta</strong>=<em>N</em></dt>
+<dd>
+<p>The theta value for the Zipfian distribution which is used as the sampling method for the second node of one term in the path guided linear 1D SGD model. The default value is <em>0.99</em>.</p>
+</dd>
+<dt class="hdlist1"><strong>-x, --path-sgd-iter-max</strong>=<em>N</em></dt>
+<dd>
+<p>The maximum number of iterations for path guided linear 1D SGD model. The default value is <em>30</em>.</p>
+</dd>
+<dt class="hdlist1"><strong>-F, --iteration-max-learning-rate</strong>=<em>N</em></dt>
+<dd>
+<p>The iteration where the learning rate is max for path guided linear 1D SGD model. The default value is <em>0</em>.</p>
+</dd>
+<dt class="hdlist1"><strong>-k, --path-sgd-zipf-space</strong>=<em>N</em></dt>
+<dd>
+<p>The maximum space size of the Zipfian distribution which is used as the sampling method for the second node of one term in the path guided linear 1D SGD model. The default value is the <em>longest path length</em>.</p>
+</dd>
+<dt class="hdlist1"><strong>-I, --path-sgd-zipf-space-max</strong>=<em>N</em></dt>
+<dd>
+<p>The maximum space size of the Zipfian distribution beyond which quantization occurs. Default value is <em>100</em>.</p>
+</dd>
+<dt class="hdlist1"><strong>-l, --path-sgd-zipf-space-quantization-step</strong>=<em>N</em></dt>
+<dd>
+<p>Quantization step size when the maximum space size of the Zipfian distribution is exceeded. Default value is <em>100</em>.</p>
+</dd>
+<dt class="hdlist1"><strong>-y, --path-sgd-zipf-max-num-distributions</strong>=<em>N</em></dt>
+<dd>
+<p>Approximate maximum number of Zipfian distributions to calculate. The default value is <em>100</em>.</p>
+</dd>
+<dt class="hdlist1"><strong>-q, --path-sgd-seed</strong>=<em>N</em></dt>
+<dd>
+<p>Set the seed for the deterministic 1-threaded path guided linear 1D SGD model. The default value is <em>pangenomic!</em>.</p>
+</dd>
+<dt class="hdlist1"><strong>-u, --path-sgd-snapshot</strong>=<em>STRING</em></dt>
+<dd>
+<p>Set the prefix to which each snapshot graph of a path guided 1D SGD iteration should be written to. This is turned off per default.
+This argument only works when <em>-Y, --path-sgd</em> was specified. Not applicable in a pipeline of sorts.</p>
 </dd>
 </dl>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_1d_linear_sgd_sort">4.4.5. 1D Linear SGD Sort</h4>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"><strong>-S, --linear-sgd</strong></dt>
-<dd>
-<p>Apply 1D linear SGD algorithm to sort the graph.</p>
-</dd>
-<dt class="hdlist1"><strong>-O, --sgd-bandwidth</strong>=<em>sgd-bandwidth</em></dt>
-<dd>
-<p>Bandwidth of linear SGD model. The default value is <em>1000</em>.</p>
-</dd>
-<dt class="hdlist1"><strong>-Q, --sgd-sampling-rate</strong>=<em>sgd-sampling-rate</em></dt>
-<dd>
-<p>Sample pairs of nodes with probability distance between them divided by the sampling rate. The default value is <em>20</em>.</p>
-</dd>
-<dt class="hdlist1"><strong>-K, --sgd-use-paths</strong></dt>
-<dd>
-<p>Use the paths to structure the distances between nodes in SGD.</p>
-</dd>
-<dt class="hdlist1"><strong>-T, --sgd-iter-max</strong>=<em>sgd_iter-max</em></dt>
-<dd>
-<p>The maximum number of iterations for the linear SGD model. The default value is <em>30</em>.</p>
-</dd>
-<dt class="hdlist1"><strong>-V, --sgd-eps</strong>=<em>sgd-eps</em></dt>
-<dd>
-<p>The final learning rate for the linear SGD model. The default value is <em>0.01</em>.</p>
-</dd>
-<dt class="hdlist1"><strong>-C, --sgd-delta</strong>=<em>sgd-delta</em></dt>
-<dd>
-<p>The threshold of the maximum node displacement, approximately in base pairs, at which to stop SGD.</p>
-</dd>
-</dl>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_eades_sort">4.4.6. Eades Sort</h4>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"><strong>-e, --eades</strong></dt>
-<dd>
-<p>Use eades algorithm.</p>
-</dd>
-</dl>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_path_sorting_options">4.4.7. Path Sorting Options</h4>
+<h4 id="_path_sorting_options">4.4.5. Path Sorting Options</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><strong>-L, --paths-min</strong></dt>
@@ -1244,7 +1319,7 @@ pipeline of sorts within one parameter.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_pipeline_sorting">4.4.8. Pipeline Sorting</h4>
+<h4 id="_pipeline_sorting">4.4.6. Pipeline Sorting</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><strong>-p, --pipeline</strong>=<em>STRING</em></dt>
@@ -1256,7 +1331,7 @@ pipeline of sorts within one parameter.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_additional_parameters">4.4.9. Additional Parameters</h4>
+<h4 id="_additional_parameters">4.4.7. Additional Parameters</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><strong>-d, --dagify-sort</strong></dt>
@@ -1271,18 +1346,18 @@ pipeline of sorts within one parameter.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_threading_2">4.4.10. Threading</h4>
+<h4 id="_threading_2">4.4.8. Threading</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><strong>-t, --threads</strong>=<em>N</em></dt>
 <dd>
-<p>Number of threads to use for parallel sorting in SGD. Only specify this argument in combination with <strong>-S, --linear-sgd</strong>. No multi-threading support for any other sorting algorithm.</p>
+<p>Number of threads to use for the parallel operations.</p>
 </dd>
 </dl>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_processing_information_2">4.4.11. Processing Information</h4>
+<h4 id="_processing_information_2">4.4.9. Processing Information</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><strong>-P, --progress</strong></dt>
@@ -1293,7 +1368,7 @@ pipeline of sorts within one parameter.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_program_information_3">4.4.12. Program Information</h4>
+<h4 id="_program_information_3">4.4.10. Program Information</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><strong>-h, --help</strong></dt>
@@ -1658,11 +1733,10 @@ in a fixed sequence quality FASTQ format. Various parameters can refine the unit
 <div class="sect2">
 <h3 id="_description_8">8.3. DESCRIPTION</h3>
 <div class="paragraph">
-<p>The odgi viz(1) command can produce a linear, static visualization of an odgi variation graph. It aggregates the pangenome into bins
-and directly renders a raster image. The binning level depends on the target width of the PNG to emit. Can be used to produce visualizations for gigabase scale pangenomes. For more information
-about the binning process, please refer to <a href="#_odgi_bin1">odgi bin</a>. If reverse coloring was selected, only
-the bins with a reverse rate of at least 0.5 are colored. Currently, there is no parameter to color according to the
-sequence coverage in bins available.</p>
+<p>The odgi viz(1) command can produce a linear, static visualization of an odgi variation graph. It can aggregate the pangenome into bins
+and directly renders a raster image. The binning level can be specified in input or it is calculated from the target width of the PNG to emit.
+Can be used to produce visualizations for gigabase scale pangenomes. For more information about the binning process,
+please refer to <a href="#_odgi_bin1">odgi bin</a>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -1702,9 +1776,9 @@ sequence coverage in bins available.</p>
 <dd>
 <p>The padding in pixels on the x-axis for a path.</p>
 </dd>
-<dt class="hdlist1"><strong>-R, --path-per-row</strong></dt>
+<dt class="hdlist1"><strong>-R, --pack-paths</strong></dt>
 <dd>
-<p>Display a single path per row rather than packing them.</p>
+<p>Pack all paths rather than displaying a single path per row.</p>
 </dd>
 <dt class="hdlist1"><strong>-L, --link-path-pieces</strong>=<em>FLOAT</em></dt>
 <dd>
@@ -1712,29 +1786,134 @@ sequence coverage in bins available.</p>
 </dd>
 <dt class="hdlist1"><strong>-A, --alignment-prefix</strong>=<em>STRING</em></dt>
 <dd>
-<p>Apply alignment related visual motifs to paths which have this name prefix.</p>
+<p>Apply alignment related visual motifs to paths which have this name prefix. It affects the [<strong>-S, --show-strand</strong>] and
+[<strong>-d, --change-darkness</strong>] options.</p>
 </dd>
 <dt class="hdlist1"><strong>-S, --show-strand</strong></dt>
 <dd>
-<p>Use red and blue coloring to display forward and reverse alignments. This parameter should only be set in combination with
+<p>Use red and blue coloring to display forward and reverse alignments. This parameter can be set in combination with
 [<strong>-A, --alignment-prefix</strong>=<em>STRING</em>].</p>
 </dd>
-</dl>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_threading_4">8.4.3. Threading</h4>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"><strong>-t, --threads</strong>=<em>N</em></dt>
+<dt class="hdlist1"><strong>-z, --color-by-mean-inversion-rate</strong></dt>
 <dd>
-<p>Number of threads to use.</p>
+<p>Change the color respect to the node strandness (black for forward, red for reverse); in binned mode (<strong>-b, --binned-mode</strong>),
+change the color respect to the mean inversion rate of the path for each bin, from black (no inversions) to red (bin
+mean inversion rate equals to 1).</p>
+</dd>
+<dt class="hdlist1"><strong>-s, --color-by-prefix</strong></dt>
+<dd>
+<p>Colors paths by their names looking at the prefix before the given character C.</p>
 </dd>
 </dl>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_program_information_7">8.4.4. Program Information</h4>
+<h4 id="_intervals_selection">8.4.3. Intervals selection</h4>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>-r, --pangenomic-range</strong></dt>
+<dd>
+<p>Nucleotide range to visualize: <code>STRING=[PATH:]start-end</code>. <code>*-end</code> for <code>[0,end]</code>; <code>start-*</code> for <code>[start,pangenome_length]</code>.
+If no PATH is specified, the nucleotide positions refer to the pangenome&#8217;s sequence (i.e., the sequence obtained arranging all the graph&#8217;s node
+from left to right).</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_paths_selection">8.4.4. Paths selection</h4>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>-p, --paths-to-display</strong></dt>
+<dd>
+<p>List of paths to display in the specified order; the file must contain one path name per line and a subset of all
+paths can be specified.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_path_names_visualization_options">8.4.5. Path names visualization Options</h4>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>-H, --hide-path-names</strong></dt>
+<dd>
+<p>Hide the path names on the left of the generated image.</p>
+</dd>
+<dt class="hdlist1"><strong>-C, --color-path-names-background</strong></dt>
+<dd>
+<p>Color path names background with the same color as paths</p>
+</dd>
+<dt class="hdlist1"><strong>-c, --max-num-of-characters</strong></dt>
+<dd>
+<p>Maximum number of characters to display for each path name (max 128 characters). The default value is
+<em>the length of the longest path name</em> (up to 32 characters).</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_binned_mode_options">8.4.6. Binned Mode Options</h4>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>-b, --binned-mode</strong></dt>
+<dd>
+<p>The variation graph is binned before its visualization. Each pixel in the output image will correspond to a bin.
+For more information about the binning process, please refer to <a href="#_odgi_bin1">odgi bin</a>.</p>
+</dd>
+<dt class="hdlist1"><strong>-w, --bin-width</strong>=<em>N</em></dt>
+<dd>
+<p>The bin width specifies the size of each bin in the binned mode. If it is not specified, the bin width is calculated
+from the width in pixels of the output image.</p>
+</dd>
+<dt class="hdlist1"><strong>-g, --no-gap-links</strong></dt>
+<dd>
+<p>We divide links into 2 classes:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>the links which help to follow complex variations. They need to be drawn, else one could not follow the sequence of a path.</p>
+</li>
+<li>
+<p>the links helping to follow simple variations. These links are called <strong>gap-links</strong>. Such links solely connecting a
+path from left to right may not be relevant to understand a path&#8217;s traversal through the bins. Therefore, when this option
+is set, the gap-links are not drawn in binned mode.</p>
+</li>
+</ol>
+</div>
+</dd>
+<dt class="hdlist1"><strong>-m, --color-by-mean-coverage</strong></dt>
+<dd>
+<p>Change the color respect to the mean coverage of the path for each bin, from black (no coverage) to blue (max bin mean
+coverage in the entire graph).</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_gradient_mode_also_known_as_position_mode_options">8.4.7. Gradient Mode (also known as Position Mode) Options</h4>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>-d, --change-darkness</strong></dt>
+<dd>
+<p>Change the color darkness based on nucleotide position in the path. When it is used in binned mode, the mean inversion
+rate of the bin node is considered to set the color gradient starting position: when this rate is greater than 0.5, the
+bin is considered inverted, and the color gradient starts from the right-end of the bin. This parameter can be set in
+combination with [<strong>-A, --alignment-prefix</strong>=<em>STRING</em>].</p>
+</dd>
+<dt class="hdlist1"><strong>-l, --longest-path</strong></dt>
+<dd>
+<p>Use the longest path length to change the color darkness.</p>
+</dd>
+<dt class="hdlist1"><strong>-u, --white-to-black</strong></dt>
+<dd>
+<p>Change the color darkness from white (for the first nucleotide position) to black (for the last nucleotide position).</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_program_information_7">8.4.8. Program Information</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><strong>-h, --help</strong></dt>
@@ -1762,8 +1941,10 @@ sequence coverage in bins available.</p>
 </div>
 <div class="sect2">
 <h3 id="_bugs_8">8.6. BUGS</h3>
-<div class="paragraph">
-<p>Refer to the <strong>odgi</strong> issue tracker at <a href="https://github.com/vgteam/odgi/issues" class="bare">https://github.com/vgteam/odgi/issues</a>.</p>
+<div class="literalblock">
+<div class="content">
+<pre>Refer to the *odgi* issue tracker at https://github.com/vgteam/odgi/issues.</pre>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -1845,7 +2026,7 @@ with [<strong>-H, --haplotypes</strong>]. Prints an additional, first column <st
 </div>
 </div>
 <div class="sect3">
-<h4 id="_threading_5">9.4.3. Threading</h4>
+<h4 id="_threading_4">9.4.3. Threading</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><strong>-t, --threads</strong>=<em>N</em></dt>
@@ -2002,7 +2183,7 @@ fitting into these conditions.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_threading_6">10.4.6. Threading</h4>
+<h4 id="_threading_5">10.4.6. Threading</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><strong>-t, --threads</strong>=<em>N</em></dt>
@@ -2071,7 +2252,7 @@ fitting into these conditions.</p>
 <div class="sect2">
 <h3 id="_description_11">11.3. DESCRIPTION</h3>
 <div class="paragraph">
-<p>The odgi unchop(1) command merges each unitig into a single node.</p>
+<p>The odgi unchop(1) command merges each unitig into a single node preserving the node order.</p>
 </div>
 </div>
 <div class="sect2">
@@ -2092,7 +2273,29 @@ fitting into these conditions.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_program_information_10">11.4.2. Program Information</h4>
+<h4 id="_processing_information_3">11.4.2. Processing Information</h4>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>-d, --debug</strong></dt>
+<dd>
+<p>Print information about the process to stderr.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_threading_6">11.4.3. Threading</h4>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>-t, --threads</strong>=<em>N</em></dt>
+<dd>
+<p>Number of threads to use for the parallel operations.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_program_information_10">11.4.4. Program Information</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><strong>-h, --help</strong></dt>
@@ -2365,7 +2568,10 @@ project. Per default, odgi bin writes the bins to stdout in a tab-delimited form
 <strong>mean.pos</strong> (mean nucleotide position of this path in this bin), <strong>first.nucl</strong> (first nucleotide position of this path in this bin),
 <strong>last.nucl</strong> (last nucleotide position of this path in this bin). These nucleotide ranges might span positions that are not present in the bin. Example:
 A range of 1-100 means that the first nucleotide has position 1 and the last has position 100, but nucleotide 45 could be located in
-another bin. For an exact positional output, please specify [<strong>-j, --json</strong>].</p>
+another bin. For an exact positional output, please specify [<strong>-j, --json</strong>].<br>
+Running odgi bin in <a href="https://github.com/tpook92/HaploBlocker">HaploBlocker</a> mode, only arguments [<strong>-b, --haplo-blocker</strong>],
+[<strong>-p[N], --haplo-blocker-min-paths[N]</strong>], and [<strong>-c[N], --haplo-blocker-min-coverage[N]</strong>] are required. A TSV is printed to stdout:
+Each row corresponds to a node. Each column corresponds to a path. Each value is the coverage of a specific node of a specific path.</p>
 </div>
 </div>
 <div class="sect2">
@@ -2427,19 +2633,54 @@ orientation of that particular sequence.</p>
 </dd>
 <dt class="hdlist1"><strong>-g, --no-gap-links</strong></dt>
 <dd>
-<p>Links connecting a path from left to right may not be relevant to understand a path&#8217;s traversal through the bins. They
-can be left out saving disk space.</p>
+<p>We divide links into 2 classes:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>the links which help to follow complex variations. They need to be drawn, else one could not follow the sequence of a path.</p>
+</li>
+<li>
+<p>the links helping to follow simple variations. These links are called <strong>gap-links</strong>. Such links solely connecting a
+path from left to right may not be relevant to understand a path&#8217;s traversal through the bins. Therefore, when this option
+is set, the gap-links are left out saving disk space</p>
+</li>
+</ol>
+</div>
 </dd>
 </dl>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_program_information_13">14.4.4. Program Information</h4>
+<h4 id="_haploblocker_options">14.4.4. HaploBlocker Options</h4>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>-b, --haplo-blocker</strong></dt>
+<dd>
+<p>Write a TSV to stdout formatted in a way ready for HaploBlocker: Each row corresponds to a node. Each column corresponds to a path.
+Each value is the coverage of a specific node of a specific path.</p>
+</dd>
+<dt class="hdlist1"><strong>-p[N], --haplo-blocker-min-paths[N]</strong></dt>
+<dd>
+<p>Specify the minimum number of paths that need to be present in the bin to actually report that bin. The default value is 1.</p>
+</dd>
+<dt class="hdlist1"><strong>-c[N], --haplo-blocker-min-coverage[N]</strong></dt>
+<dd>
+<p>Specify the minimum coverage a path needs to have in a bin to actually report that bin. The default value is 1.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_program_information_13">14.4.5. Program Information</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><strong>-h, --help</strong></dt>
 <dd>
 <p>Print a help message for <strong>odgi bin</strong>.</p>
+</dd>
+<dt class="hdlist1"><strong>-P, --progress</strong></dt>
+<dd>
+<p>Write the current progress to stderr.</p>
 </dd>
 </dl>
 </div>
@@ -2469,7 +2710,7 @@ can be left out saving disk space.</p>
 <div class="sect2">
 <h3 id="_authors_14">14.7. AUTHORS</h3>
 <div class="paragraph">
-<p><strong>odgi bin</strong> was written by Erik Garrison.</p>
+<p><strong>odgi bin</strong> was written by Erik Garrison, Simon Heumos</p>
 </div>
 </div>
 </div>
@@ -2582,7 +2823,7 @@ can be left out saving disk space.</p>
 <div class="sect2">
 <h3 id="_description_16">16.3. DESCRIPTION</h3>
 <div class="paragraph">
-<p>The odgi chop(1) command chops long nodes into short ones while preserving the graph topology.</p>
+<p>The odgi chop(1) command chops long nodes into short ones while preserving the graph topology and node order.</p>
 </div>
 </div>
 <div class="sect2">
@@ -2608,24 +2849,35 @@ can be left out saving disk space.</p>
 <dl>
 <dt class="hdlist1"><strong>-c, --chop-to</strong>=<em>N</em></dt>
 <dd>
-<p>Divide nodes that are shorter than <em>N</em>.</p>
+<p>Divide nodes that longer than <em>N</em> into nodes no longer than <em>N</em> while maintaining graph topology.</p>
 </dd>
 </dl>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_processing_information_3">16.4.3. Processing Information</h4>
+<h4 id="_threading_8">16.4.3. Threading</h4>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>-t, --threads</strong>=<em>N</em></dt>
+<dd>
+<p>Number of threads to use for the parallel operations.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_processing_information_4">16.4.4. Processing Information</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><strong>-d, --debug</strong></dt>
 <dd>
-<p>Print information about the components to stdout.</p>
+<p>Print information about the process to stderr.</p>
 </dd>
 </dl>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_program_information_15">16.4.4. Program Information</h4>
+<h4 id="_program_information_15">16.4.5. Program Information</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><strong>-h, --help</strong></dt>
@@ -2741,7 +2993,7 @@ It applies SGD to move a single pair of nodes at a time. The rendered graph is w
 </div>
 </div>
 <div class="sect3">
-<h4 id="_processing_information_4">17.4.4. Processing Information</h4>
+<h4 id="_processing_information_5">17.4.4. Processing Information</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><strong>-d, --debug</strong></dt>
@@ -3517,7 +3769,7 @@ be selected. odgi test(1) depends on <a href="https://github.com/catchorg/Catch2
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-05-15 23:34:41 +0200
+Last updated 2021-03-12 15:33:48 +0100
 </div>
 </div>
 </body>
